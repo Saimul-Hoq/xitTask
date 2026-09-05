@@ -56,5 +56,10 @@ if (!$user || !password_verify($password, $user["password"])) {
 session_regenerate_id(true);
 $_SESSION['email'] = $user['email'];
 
-header('Location: ../views/dashboard.php');
+if($user["role"]===1){
+    header('Location: ../views/adminDashboard.php');
+}
+else{
+    header('Location: ../views/dashboard.php');
+}
 exit;
