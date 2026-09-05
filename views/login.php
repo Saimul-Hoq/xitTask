@@ -35,11 +35,11 @@
     <form action="../controllers/login_controller.php" method="post">
 
         <label class="label text-xl">Email: </label>
-        <p id="login-email-error"><?php echo $errors["email"]??"" ?></p>
+        <p id="login-email-error"><?php echo htmlspecialchars($errors["email"])??"" ?></p>
         <input id="login-email" name="email" type="text" value="<?php echo $oldEmail ?>" class="input" placeholder="Enter your email" />
 
         <label class="label  text-xl">Password: </label>
-        <p id="login-password-error"><?php echo $errors["password"]??"" ?></p>
+        <p id="login-password-error"><?php echo htmlspecialchars($errors["password"])??"" ?></p>
         <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password" />
 
         <button type="submit" id="login-btn" class="btn btn-primary text-xl">Login</button>

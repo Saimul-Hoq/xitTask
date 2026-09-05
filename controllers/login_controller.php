@@ -54,7 +54,6 @@ if (!$user || $password!==$user["password"]) {
 
 
 session_regenerate_id(true);
-$_SESSION['id'] = $user['id'];
 $_SESSION['email'] = $user['email'];
 
 header('Location: ../views/dashboard.php');

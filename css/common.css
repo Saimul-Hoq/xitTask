@@ -5,9 +5,10 @@
 }
 
 body{
-    background-color: #f4f9fd;
+    background-color: #eef5fb;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 .font{
@@ -146,12 +147,12 @@ p[id$="-error"]{
 }
 
 
-form{
+form, fieldset{
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     padding: 1.25rem;
-    background-color: #d6e8ee;
+    background-color: #cce5ee;
     border: 1px solid #ace1f3;
     border-radius: 1rem;
     width: 40%;
@@ -363,7 +364,7 @@ img{
     justify-content: space-between;
     width: 100%;
     /* background-color: #e9dfc8; */
-    background-color: #c7baa0;
+    background-color: #cce5ee;
     padding: 0.2rem 1.5rem;
     /* border-bottom: 1px solid #7a5e37; */
 }
@@ -392,6 +393,14 @@ img{
     display: flex;
     align-items: center;
     gap: 30px;    
+    margin-right: 1rem;
+}
+
+.navbar-end a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .hidden{
