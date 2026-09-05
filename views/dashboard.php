@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xit|User Dashboard</title>
-     <link rel="shortcut icon" href="../assets/xit_logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/xit_logo.png" type="image/x-icon">
     
     <!-- font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

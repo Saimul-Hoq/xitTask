@@ -3,7 +3,7 @@
 class Database{
 
     private $host = "localhost";
-    private $dbName = "demo";
+    private $dbName = "xit_task";
     private $dbUsername = "saim";
     private $dbPassword = "saim1234";
 
