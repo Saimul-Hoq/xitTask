@@ -41,7 +41,7 @@ $user = getUser($pdo, $email);
 //     exit;
 // }
 
-if (!$user || $password!==$user["password"]) {
+if (!$user || !password_verify($password, $user["password"])) {
     $errors["email"] = "Email or password incorrect";
     $errors["password"] = "Email or password incorrect";
 

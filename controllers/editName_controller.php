@@ -15,8 +15,8 @@ $errors = [];
 if ($name === "") {
     $errors["name"] = "Name is required.";
 } 
-elseif (strlen($name) > 100) {
-    $errors["name"] = "Name must be under 100 characters.";
+elseif (strlen($name) > 20) {
+    $errors["name"] = "Name must be under 20 characters.";
 }
 elseif(strlen($name)<2){
     $errors["name"] = "Name must be more than 1 characters.";
