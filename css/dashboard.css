@@ -1,4 +1,5 @@
 .body-content{
+    position: relative;
     display: flex;
     flex:1;
     flex-direction: column;
@@ -6,7 +7,7 @@
     justify-content: center;
 }
 fieldset{
-    width: 70%;
+    width: 60%;
     padding-bottom: 5rem;
 }
 .top{
@@ -34,7 +35,7 @@ fieldset{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    /* gap: 1rem; */
 }
 .middle-left, .middle-right{
     width: 50%;
@@ -61,3 +62,37 @@ fieldset hr{
     width: 100%;
     background:rgb(44, 44, 64);
 }
+
+.profile-block{
+    position:absolute;
+    transition: transform 0.5s, opacity 0.5s;
+}
+.closeProfileBlock{
+    transform: scale(0.7);
+    opacity: 0.3;
+}
+.edit-form{
+    position: absolute;
+    z-index: -1;
+    width: 30%;
+    align-self: flex-end;
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.5s;
+}
+.openEditForm{
+    transform: translateX(-100%);
+    opacity: 1;
+    z-index: 2;
+}
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+}
+.btn-container .btn{
+    width: 40%;
+}
+#jsEditForm{
+    display: none;
+}
+
