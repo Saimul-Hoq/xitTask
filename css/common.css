@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Lora", serif;
 }
 
@@ -9,6 +10,14 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+.body-content{
+    /* position: relative; */
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .font{
@@ -35,7 +44,7 @@ font-weight: 600;
 }
 
 h4 {
-font-size: clamp(1.125rem, 1rem + 0.6vw, 1.625rem);
+font-size: clamp(1.525rem, 1.5rem + 0.6vw, 1.885rem);
 line-height: 1.35;
 font-weight: 600;
 }
@@ -365,14 +374,13 @@ img{
     width: 100%;
     /* background-color: #e9dfc8; */
     background-color: #cce5ee;
-    padding: 0.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     /* border-bottom: 1px solid #7a5e37; */
 }
 
 .navbar-start {
     display: flex;
     align-items: center;
-    flex: 0;
     justify-content: flex-start;
     gap: 30px;
     margin-left: 0.5rem;

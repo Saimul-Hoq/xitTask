@@ -1,0 +1,7 @@
+.navbar-center a{
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+.navbar-center a:hover{
+    transform: scale(1.2);
+}

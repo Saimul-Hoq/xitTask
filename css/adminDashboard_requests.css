@@ -1,0 +1,94 @@
+body{
+    background-color: #d4e7f9;
+}
+.navbar{
+    background-color: #8ab6d4;
+}
+form{
+    all: unset;
+    display: inline;
+}
+.btn{
+    height: 2rem;
+}
+.accept-btn{
+    background-color: rgb(137, 216, 137);
+}
+.reject-btn{
+    background-color: rgb(255, 91, 91);
+}
+tbody{
+    font-size: large;
+}
+.withImage{
+    display: inline-flex;
+    align-items: center;
+}
+td img{
+    width: 36px;
+    height: 36px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+table, th, td{
+    padding: 1rem;
+    border-collapse: collapse;
+}
+.body-content{
+    background: url(../assets/bg4.jpeg) center / cover;
+}
+.table{
+    width: 90vw;
+    height: 80vh;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 0.4rem 0.8rem #0005;
+    border-radius: 0.8rem;
+    overflow: hidden;
+}
+.table-header{
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: 0.8rem 1rem;
+}
+.table-body{
+    width: 95%;
+    max-height: calc(89% - 0.8rem);
+    background-color: #fffb;
+    margin: 0.8rem auto;
+    border-radius: 0.6rem;
+    overflow: auto;
+}
+.table-body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.table-body::-webkit-scrollbar-thumb{
+    border-radius: 0.5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+.table-body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+
+table{
+    width: 100%;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1de;
+}
+
+tbody tr:nth-child(even){
+    background-color: #0000000b;
+}
+
+tbody tr:hover{
+    background-color: #fff6;
+}

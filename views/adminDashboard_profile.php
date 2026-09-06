@@ -33,16 +33,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/adminDashboard_profile.css">
+
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-start">
-            <h3>Profile</h3>
-        </div>
-        <div class="navbar-end">
-            <a class="btn-ghost text-xl" href="../controllers/logout_controller.php">Logout   <i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
-    </div>
+    <?php include "../includes/navbar.php" ?>
     <div class="body-content">
         <fieldset class="profile-block">
             <div class="top">
