@@ -15,6 +15,8 @@ document.querySelector("#editPassword-cancel-btn").addEventListener("click", () 
     document.querySelector("#editPassword-form").classList.remove("openEditForm");
     setProfileButtonsDisabled(false);
 });
+
+const currentEditForm = document.querySelector("#jsEditForm").textContent.trim();
 if(currentEditForm === "password"){
     document.querySelector(".profile-block").classList.add("closeProfileBlock");
     document.querySelector("#editPassword-form").classList.add("openEditForm");

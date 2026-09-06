@@ -5,15 +5,29 @@ if (!isset($_SESSION["email"])) {
     header("Location: ../controllers/logout_controller.php");
     exit();
 }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: ../views/login.php');
+    exit;
+}
 
 require_once(__DIR__."/../config/database.php");
 require_once(__DIR__."/../models/editPassword_model.php");
+require_once(__DIR__."/../models/getUser_model.php");
+
 
 $currentPassword = trim($_POST["currentPassword"] ?? "");
 $newPassword = trim($_POST["newPassword"] ?? "");
 $confirmPassword = trim($_POST["confirmPassword"] ?? "");
 
 $errors = [];
+$user = getUser($pdo, $_SESSION["email"]);
+$location = "";
+if($user["role"]===1){
+    $location = "Location: ../views/adminDashboard_profile.php";
+}
+else{
+    $location = "Location: ../views/dashboard.php";
+}
 
 if ($currentPassword === "") {
     $errors["currentPassword"] = "Current password is required.";
@@ -42,12 +56,14 @@ if (empty($errors)) {
 if (!empty($errors)) {
     $_SESSION["errors"] = $errors;
     $_SESSION["editForm"] = "password";
-    header("Location: ../views/dashboard.php");
+    header($location);
     exit();
 }
 
 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 editUserPassword($pdo, $_SESSION["email"], $hashedPassword);
 
-header("Location: ../views/dashboard.php");
+session_regenerate_id(true);
+header($location);
+
 exit();
