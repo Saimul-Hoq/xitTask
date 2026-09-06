@@ -1,8 +1,8 @@
 <?php
 
-function getAllRequests($pdo){
+function getAllUsers($pdo){
 
-    $query = "SELECT * FROM request ORDER BY registerDate ASC;";
+    $query = "SELECT * FROM user WHERE role = 2 ORDER BY registerDate DESC;";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
 

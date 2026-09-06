@@ -6,8 +6,8 @@
     }
 
     require_once(__DIR__."/../config/database.php");
-    require_once(__DIR__."/../models/getAllRequest_model.php");
-    $requests = getAllRequests($pdo);
+    require_once(__DIR__."/../models/getAllUsers_model.php");
+    $users = getAllUsers($pdo);
     
     
 ?>
@@ -18,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xitTask | Requests</title>
+    <title>xitTask | User List</title>
     <link rel="shortcut icon" href="../assets/xit_logo.png" type="image/x-icon">
     
     <!-- font  -->
@@ -38,7 +38,7 @@
     <div class="body-content">
         <div class="table">
             <section class="table-header">
-                <h4>Request List</h4>
+                <h4>User List</h4>
             </section>
             <section class="table-body">
                 <table>
@@ -49,30 +49,22 @@
                             <th> Mobile </th>
                             <th> Date </th>
                             <th>Address</th>
-                            <th> Accept </th>
-                            <th> Reject </th>
+                            <th> Delete </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($requests as $req): ?>
+                        <?php foreach ($users as $user): ?>
                         <tr>
-                            <td class="withImage"> <img src="../uploads/<?= htmlspecialchars($req['avatar'] ?? 'default.png') ?>"> <?= htmlspecialchars($req['name']) ?> </td>
-                            <td><?= htmlspecialchars($req['email']) ?></td>
-                            <td><?= htmlspecialchars($req['mobile']) ?></td>
-                            <td><?= htmlspecialchars(date("j F, Y", strtotime($req['registerDate']))) ?></td>  
-                            <td><?= htmlspecialchars($req['address']) ?></td>
+                            <td class="withImage"> <img src="../uploads/<?= htmlspecialchars($user['avatar'] ?? 'default.png') ?>"> <?= htmlspecialchars($user['name']) ?> </td>
+                            <td><?= htmlspecialchars($user['email']) ?></td>
+                            <td><?= htmlspecialchars($user['mobile']) ?></td>
+                            <td><?= htmlspecialchars(date("j F, Y", strtotime($user['registerDate']))) ?></td>  
+                            <td><?= htmlspecialchars($user['address']) ?></td>
                             <td>
-                                 <form method="POST" action="../controllers/requestAccept_controller.php">
-                                    <input type="hidden" name="email" value="<?= htmlspecialchars($req['email']) ?>">
-                                   
-                                    <button class="btn accept-btn" type="submit"><strong>Accept</strong> </button>
-                                </form>
-                            </td>
-                            <td>
-                                 <form method="POST" action="../controllers/requestReject_controller.php">
-                                    <input type="hidden" name="email" value="<?= htmlspecialchars($req['email']) ?>">
+                                 <form method="POST" action="../controllers/userDelete_controller.php">
+                                    <input type="hidden" name="email" value="<?= htmlspecialchars($user['email']) ?>">
                                     
-                                    <button class="btn reject-btn" type="submit"  ><strong>Reject</strong> </button>
+                                    <button class="btn reject-btn" type="submit"  ><strong>Delete</strong> </button>
                                 </form>
                             </td>
                         </tr>

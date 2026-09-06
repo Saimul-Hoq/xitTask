@@ -5,3 +5,6 @@
 .navbar-center a:hover{
     transform: scale(1.2);
 }
+.body-content{
+    background: url(../assets/bg4.jpeg) center / cover;
+}

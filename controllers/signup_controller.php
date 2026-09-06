@@ -128,6 +128,8 @@ $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 createSignupRequest($pdo, $email, $hashedPassword, $name, $mobile, $address, $avatarFileName, 2);
 
 
+unset($_SESSION["oldName"], $_SESSION["oldEmail"], $_SESSION["oldMobile"], 
+$_SESSION["oldAddress"]);
 
 header('Location: ../views/login.php');
 exit;

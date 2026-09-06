@@ -4,7 +4,7 @@
         </div>
         <div class="navbar-center">
             <a href="./adminDashboard_profile.php">Profile</a>
-            <a href="">User List</a>
+            <a href="./adminDashboard_userList.php">User List</a>
             <a href="./adminDashboard_requests.php">Requests</a>
         </div>
         <div class="navbar-end">

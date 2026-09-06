@@ -75,7 +75,7 @@ fieldset hr{
     transition: transform 0.5s, opacity 0.5s;
 }
 .openEditForm{
-    transform: translateX(-104%);
+    transform: translateX(-115%);
     opacity: 1;
     z-index: 2;
 }

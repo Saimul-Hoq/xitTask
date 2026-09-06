@@ -34,12 +34,7 @@ if (!empty($errors)) {
 
 $user = getUser($pdo, $email);
 
-// if (!$user || !password_verify($password, $user['password'])) {
-//     $_SESSION['login_errors'] = ['general' => 'Invalid email or password.'];
-//     $_SESSION['old_email'] = $email;
-//     header('Location: ../views/login.php');
-//     exit;
-// }
+
 
 if (!$user || !password_verify($password, $user["password"])) {
     $errors["email"] = "Email or password incorrect";
