@@ -57,7 +57,7 @@ session_regenerate_id(true);
 $_SESSION['email'] = $user['email'];
 
 if($user["role"]===1){
-    header('Location: ../views/adminDashboard.php');
+    header('Location: ../views/adminDashboard_profile.php');
 }
 else{
     header('Location: ../views/dashboard.php');
