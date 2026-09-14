@@ -31,49 +31,62 @@
 <body>
     
     
-    <form action="../controllers/signup_controller.php" method="post" enctype="multipart/form-data">
+    <form action="../controllers/auth_controller.php" method="post" enctype="multipart/form-data">
         <h4 class="text-center">Register Your Account</h4>
         <hr>
         <div class="field-area">
             <div class="left">
                 <div class="field">
-                     <label class="label text-xl">Name: </label> <br>
-                    <p id="signup-name-error"><?php echo $errors["name"] ?? "" ?></p>
+                    <label class="label text-xl">Name: </label> <br>
+                    
                     <input name="name" id="signup-name" type="text" class="input" placeholder="Enter your name" value="<?php echo htmlspecialchars($oldName) ?>"/>
+
+                    <p id="signup-name-error"><?php echo htmlspecialchars($errors["name"] ?? "") ?></p>
                 </div>
                
                 <div class="field">
                     <label class="label text-xl">Email: </label> <br>
-                    <p id="signup-email-error"><?php echo $errors["email"] ?? "" ?></p>
+                   
                     <input name="email" id="signup-email" type="text" class="input" placeholder="Enter your email" value="<?php echo htmlspecialchars($oldEmail) ?>"/>
+
+                    <p id="signup-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
                 </div>
                
                 <div class="field">
                     <label class="label text-xl">Password: </label> <br>
-                    <p id="signup-password-error"><?php echo $errors["password"] ?? "" ?></p>
+                    
                     <input name="password" id="signup-password" type="password" class="input" placeholder="Enter your password" />
+
+                    <p id="signup-password-error"><?php echo htmlspecialchars($errors["password"] ?? "") ?></p>
                 </div>
                
             </div>
             <div class="right">
                 <div class="field">
                     <label class="label text-xl">Phone Number: </label> <br>
-                    <p id="signup-mobile-error"><?php echo $errors["mobile"] ?? "" ?></p>
+                    
                     <input name="mobile" id="signup-mobile" type="text" class="input" placeholder="01XXXXXXXXX" value="<?php echo htmlspecialchars($oldMobile) ?>"/>
+
+                    <p id="signup-mobile-error"><?php echo htmlspecialchars($errors["mobile"] ?? "") ?></p>
                 </div>
                
                 <div class="field">
                     <label class="label text-xl">Avatar: </label> <br>
-                    <p id="signup-avatar-error"><?php echo $errors["avatar"] ?? "" ?></p>
+                   
                     <input name="avatar" id="signup-avatar" type="file" accept="image/*" class="input" placeholder="Enter your profile photo (optional)" />
+
+                    <p id="signup-avatar-error"><?php echo htmlspecialchars($errors["avatar"] ?? "") ?></p>
                 </div>
                
                 <div class="field">
                     <label class="label text-xl">Address: </label> <br>
-                    <p id="signup-address-error"><?php echo $errors["address"] ?? "" ?></p>
+                   
                     <input name="address" id="signup-address" type="text" class="input" placeholder="Enter your address" value="<?php echo htmlspecialchars($oldAddress) ?>"/>
+
+                    <p id="signup-address-error"><?php echo htmlspecialchars($errors["address"] ?? "") ?></p>
                 </div>
-               
+                <input type="hidden" name="action" value="signup">
+
             </div>
         </div>
         <div class="btn-area">

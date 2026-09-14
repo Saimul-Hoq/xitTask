@@ -1,10 +1,10 @@
 <?php
 
-function updateUserName($pdo, $email, $name){
+function updateUserName($conn, $id, $name){
 
-    $query = "UPDATE user SET name = :name WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":name", $name);
-    $stmt->bindParam(":email", $email);
+    $query = "UPDATE user SET name = ? WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $name, $id);
     $stmt->execute();
+    $stmt->close();
 }

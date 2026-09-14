@@ -1,34 +1,41 @@
 <?php
 
-function approveRequest($pdo, $email, $approvedBy){
+function approveRequest($conn, $id, $approvedBy){
 
-    // 1. Get the specific request by email
-    $stmt = $pdo->prepare("SELECT * FROM request WHERE email = :email;");
-    $stmt->bindParam(":email", $email);
+    // 1. Get the specific request by id
+    $stmt = $conn->prepare("SELECT * FROM request WHERE id = ?;");
+    $stmt->bind_param("s", $id);
     $stmt->execute();
-    $request = $stmt->fetch(PDO::FETCH_ASSOC);
+    $request = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
 
     if (!$request) {
-        return false; 
+        return false;
     }
 
     // 2. Insert into user table with approvedBy
-    $query = "INSERT INTO user (email, password, name, mobile, address, avatar, role, approvedBy) VALUES (:email, :password, :name, :mobile, :address, :avatar, :role, :approvedBy);";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":email", $request["email"]);
-    $stmt->bindParam(":password", $request["password"]);
-    $stmt->bindParam(":name", $request["name"]);
-    $stmt->bindParam(":mobile", $request["mobile"]);
-    $stmt->bindParam(":address", $request["address"]);
-    $stmt->bindParam(":avatar", $request["avatar"]);
-    $stmt->bindParam(":role", $request["role"], PDO::PARAM_INT);
-    $stmt->bindParam(":approvedBy", $approvedBy);
+    $query = "INSERT INTO user (id, email, password, name, mobile, address, avatar, role, approvedBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param(
+        "sssssssis",
+        $id,
+        $request["email"],
+        $request["password"],
+        $request["name"],
+        $request["mobile"],
+        $request["address"],
+        $request["avatar"],
+        $request["role"],
+        $approvedBy
+    );
     $stmt->execute();
+    $stmt->close();
 
     // 3. Delete the request
-    $stmt = $pdo->prepare("DELETE FROM request WHERE email = :email;");
-    $stmt->bindParam(":email", $email);
+    $stmt = $conn->prepare("DELETE FROM request WHERE id = ?;");
+    $stmt->bind_param("s", $id);
     $stmt->execute();
+    $stmt->close();
 
     return true;
 }

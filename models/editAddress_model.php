@@ -1,21 +1,22 @@
 <?php
 
-function getAddress($pdo, $email){
+function getAddress($conn, $id){
 
-    $query = "SELECT address FROM user WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":email", $email);
+    $query = "SELECT address FROM user WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $id);
     $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
     return $result ? $result["address"] : null;
 }
 
-function editAddress($pdo, $email, $address){
+function editAddress($conn, $id, $address){
 
-    $query = "UPDATE user SET address = :address WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":address", $address);
-    $stmt->bindParam(":email", $email);
+    $query = "UPDATE user SET address = ? WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $address, $id);
     $stmt->execute();
+    $stmt->close();
 }

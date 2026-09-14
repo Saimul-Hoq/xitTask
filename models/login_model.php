@@ -1,12 +1,13 @@
 <?php
 
-function getUser($pdo, $email){
+function getUser($conn, $email){
 
-    $query = "SELECT * FROM user WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":email", $email);
+    $query = "SELECT * FROM user WHERE email = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
     return $result;
 }

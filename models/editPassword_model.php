@@ -1,21 +1,22 @@
 <?php
 
-function getUserPassword($pdo, $email){
+function getUserPassword($conn, $id){
 
-    $query = "SELECT password FROM user WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":email", $email);
+    $query = "SELECT password FROM user WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $id);
     $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
     return $result ? $result["password"] : null;
 }
 
-function editUserPassword($pdo, $email, $hashedPassword){
+function editUserPassword($conn, $id, $hashedPassword){
 
-    $query = "UPDATE user SET password = :password WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":password", $hashedPassword);
-    $stmt->bindParam(":email", $email);
+    $query = "UPDATE user SET password = ? WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $hashedPassword, $id);
     $stmt->execute();
+    $stmt->close();
 }

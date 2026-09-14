@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #eef5fb;
+    background: url(../assets/bg6.jpeg) center / cover;
     display: flex;
     flex-direction: column;
     min-height: 100vh;

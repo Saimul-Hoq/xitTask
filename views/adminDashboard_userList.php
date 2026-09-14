@@ -1,13 +1,13 @@
 <?php
-    session_start();
-    if(!isset($_SESSION["email"])){
-        header("Location: ../controllers/logout_controller.php");
-        exit();
-    }
+    // session_start();
+    // if(!isset($_SESSION["email"])){
+    //     header("Location: ../controllers/logout_controller.php");
+    //     exit();
+    // }
 
     require_once(__DIR__."/../config/database.php");
     require_once(__DIR__."/../models/getAllUsers_model.php");
-    $users = getAllUsers($pdo);
+    $users = getAllUsers($conn);
     
     
 ?>

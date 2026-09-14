@@ -32,15 +32,17 @@
     <h3>Login To Your Account</h3>
     <br>
     <br>
-    <form action="../controllers/login_controller.php" method="post">
+    <form action="../controllers/auth_controller.php" method="post">
 
         <label class="label text-xl">Email: </label>
-        <p id="login-email-error"><?php echo htmlspecialchars($errors["email"])??"" ?></p>
-        <input id="login-email" name="email" type="text" value="<?php echo $oldEmail ?>" class="input" placeholder="Enter your email" />
+        <input id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="Enter your email" />
+        <p id="login-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
 
         <label class="label  text-xl">Password: </label>
-        <p id="login-password-error"><?php echo htmlspecialchars($errors["password"])??"" ?></p>
         <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password" />
+        <p id="login-password-error"><?php echo htmlspecialchars($errors["password"] ?? "") ?></p>
+
+        <input type="hidden" name="action" value="login">
 
         <button type="submit" id="login-btn" class="btn btn-primary text-xl">Login</button>
         <p class="text-center">Don't have an account? <a href="./signup.php">signup</a> </p>

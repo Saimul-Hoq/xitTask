@@ -5,10 +5,11 @@ require_once(__DIR__."/../config/database.php");
 require_once(__DIR__."/../models/signup_model.php");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../views/signup.php');
+    header('Location: ../views/login.php');
     exit;
 }
 
+$id = generateId();
 $name = trim($_POST["name"] ?? "");
 $email = trim($_POST["email"] ?? "");
 $password = trim($_POST["password"] ?? "");
@@ -36,7 +37,7 @@ if ($email === "") {
     $errors["email"] = "Email is required.";
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors["email"] = "Invalid email format.";
-} elseif (emailExists($pdo, $email)) {
+} elseif (emailExists($conn, $email)) {
     $errors["email"] = "Email is already registered.";
 }
 
@@ -52,7 +53,7 @@ if ($mobile === "") {
     $errors["mobile"] = "Mobile number is required.";
 } elseif (!preg_match('/^01[0-9]{9}$/', $mobile)) {
     $errors["mobile"] = "Invalid Phone Number";
-} elseif (mobileExists($pdo, $mobile)) {
+} elseif (mobileExists($conn, $mobile)) {
     $errors["mobile"] = "Mobile number is already registered.";
 }
 
@@ -62,7 +63,7 @@ if ($address === "") {
 }
 
 // --- Avatar (optional) ---
-function isAvatarInvalid(&$errors, &$avatarFilename, $email, $avatarTmpPath, $avatarUploadError){
+function isAvatarInvalid(&$errors, &$avatarFilename, $id, $avatarTmpPath, $avatarUploadError){
 
     if ($avatarUploadError !== UPLOAD_ERR_OK) {
         $errors["avatar"] = "Error uploading avatar.";
@@ -87,7 +88,7 @@ function isAvatarInvalid(&$errors, &$avatarFilename, $email, $avatarTmpPath, $av
     }
 
     $ext = $allowedMimes[$realMime];
-    $avatarFilename = "user_" . $email . "." . $ext;
+    $avatarFilename = "user_" . $id . "." . $ext;
 
     return false;
 }
@@ -125,7 +126,7 @@ if ($avatarProvided) {
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-createSignupRequest($pdo, $email, $hashedPassword, $name, $mobile, $address, $avatarFileName, 2);
+createSignupRequest($conn, $id, $email, $hashedPassword, $name, $mobile, $address, $avatarFileName, 2);
 
 
 unset($_SESSION["oldName"], $_SESSION["oldEmail"], $_SESSION["oldMobile"], 

@@ -7,7 +7,7 @@
 
     require_once(__DIR__."/../config/database.php");
     require_once(__DIR__."/../controllers/getUser_controller.php");
-    $user = getCurrentUser($pdo, $_SESSION["email"]);
+    $user = getCurrentUser($conn, $_SESSION["email"]);
     $errors = $_SESSION["errors"] ?? [];
     $currentEditForm = $_SESSION["editForm"] ?? "";
     unset($_SESSION["errors"], $_SESSION["editForm"]); 
@@ -40,7 +40,7 @@
             <h3>Profile</h3>
         </div>
         <div class="navbar-end">
-            <a class="btn-ghost text-xl" href="../controllers/logout_controller.php">Logout   <i class="fa-solid fa-right-from-bracket"></i></a>
+           <a class="btn-ghost text-xl" href="../controllers/authController.php?action=logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
     <div class="body-content">

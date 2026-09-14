@@ -33,7 +33,7 @@ if (!empty($errors)) {
     exit;
 }
 
-$user = getUser($pdo, $email);
+$user = getUser($conn, $email);
 
 
 

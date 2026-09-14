@@ -1,6 +1,4 @@
-body{
-    background-color: #d4e7f9;
-}
+
 .navbar{
     background-color: #8ab6d4;
 }
@@ -34,9 +32,6 @@ td img{
 table, th, td{
     padding: 1rem;
     border-collapse: collapse;
-}
-.body-content{
-    background: url(../assets/bg4.jpeg) center / cover;
 }
 .table{
     width: 90vw;

@@ -1,10 +1,10 @@
 <?php
 
-function getAllRequests($pdo){
+function getAllRequests($conn){
 
     $query = "SELECT * FROM request ORDER BY registerDate ASC;";
-    $stmt = $pdo->prepare($query);
+    $stmt = $conn->prepare($query);
     $stmt->execute();
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }

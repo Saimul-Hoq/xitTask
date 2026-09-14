@@ -1,32 +1,34 @@
 <?php
 
-function getUserMobile($pdo, $email){
+function getUserMobile($conn, $id){
 
-    $query = "SELECT mobile FROM user WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":email", $email);
+    $query = "SELECT mobile FROM user WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $id);
     $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
     return $result ? $result["mobile"] : null;
 }
 
-function isMobileExists($pdo, $mobile, $email){
+function isMobileExists($conn, $mobile, $id){
 
-    $query = "SELECT id FROM user WHERE mobile = :mobile AND email != :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":mobile", $mobile);
-    $stmt->bindParam(":email", $email);
+    $query = "SELECT id FROM user WHERE mobile = ? AND id != ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $mobile, $id);
     $stmt->execute();
 
-    return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
+    $result = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+    return $result !== null;
 }
 
-function editMobile($pdo, $email, $mobile){
+function editMobile($conn, $id, $mobile){
 
-    $query = "UPDATE user SET mobile = :mobile WHERE email = :email;";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":mobile", $mobile);
-    $stmt->bindParam(":email", $email);
+    $query = "UPDATE user SET mobile = ? WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $mobile, $id);
     $stmt->execute();
+    $stmt->close();
 }
