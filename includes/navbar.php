@@ -8,6 +8,6 @@
             <a href="./adminDashboard_requests.php">Requests</a>
         </div>
         <div class="navbar-end">
-            <a class="btn-ghost text-2xl text-bold" href="../controllers/logout_controller.php">Logout   <i class="fa-solid fa-right-from-bracket"></i></a>
+            <a class="btn-ghost text-2xl text-bold" href="../controllers/auth_controller.php?action=logout">Logout   <i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>

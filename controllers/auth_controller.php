@@ -43,13 +43,24 @@ if(($_POST["action"]??"") === "login"){
         exit;
     }
 
+    $user = getUserFromRequest($conn, $email);
+    if ($user) {
+        $errors["email"] = "Waiting for admin approval";
+        // $errors["password"] = "Email or password incorrect";
+
+        $_SESSION['errors'] = $errors;
+        $_SESSION['oldEmail'] = $email;
+
+        header('Location: ../views/login.php');
+        exit;
+    }
+   
+
     $user = getUser($conn, $email);
-
-
 
     if (!$user || !password_verify($password, $user["password"])) {
         $errors["email"] = "Email or password incorrect";
-        $errors["password"] = "Email or password incorrect";
+        // $errors["password"] = "Email or password incorrect";
 
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
@@ -58,9 +69,13 @@ if(($_POST["action"]??"") === "login"){
         exit;
     }
 
+   
+
 
     session_regenerate_id(true);
     $_SESSION['email'] = $user['email'];
+    $_SESSION['id'] = $user['id'];
+
 
     if($user["role"]===1){
         header('Location: ../views/adminDashboard_profile.php');
@@ -70,7 +85,7 @@ if(($_POST["action"]??"") === "login"){
     }
     exit;
 }
-else if(($_POST["action"]??"") === "signup"){
+elseif(($_POST["action"]??"") === "signup"){
 
     $id = generateId();
     $name = trim($_POST["name"] ?? "");
@@ -169,7 +184,7 @@ else if(($_POST["action"]??"") === "signup"){
     $avatarFileName = "default.png";
 
     if ($avatarProvided) {
-        isAvatarInvalid($errors, $avatarFileName, $email, $avatarTmpPath, $avatarUploadError);
+        isAvatarInvalid($errors, $avatarFileName, $id, $avatarTmpPath, $avatarUploadError);
     }
 
     if (!empty($errors)) {
@@ -195,6 +210,10 @@ else if(($_POST["action"]??"") === "signup"){
     unset($_SESSION["oldName"], $_SESSION["oldEmail"], $_SESSION["oldMobile"], 
     $_SESSION["oldAddress"]);
 
+    header('Location: ../views/login.php');
+    exit;
+}
+else{
     header('Location: ../views/login.php');
     exit;
 }

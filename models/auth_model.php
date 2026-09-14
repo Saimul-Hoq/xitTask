@@ -12,6 +12,19 @@ function getUser($conn, $email){
     return $result;
 }
 
+function getUserFromRequest($conn, $email){
+
+    $query = "SELECT * FROM request WHERE email = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $result = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+    return $result;
+}
+
+
 
 
 function generateId(){

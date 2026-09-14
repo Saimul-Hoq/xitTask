@@ -1,12 +1,12 @@
 <?php
-    // session_start();
-    // if(!isset($_SESSION["email"])){
-    //     header("Location: ../controllers/logout_controller.php");
-    //     exit();
-    // }
+    session_start();
+    if(!isset($_SESSION["id"])){
+        header("Location: ../controllers/logout_controller.php");
+        exit();
+    }
 
     require_once(__DIR__."/../config/database.php");
-    require_once(__DIR__."/../models/getAllUsers_model.php");
+    require_once(__DIR__."/../models/admin_model.php");
     $users = getAllUsers($conn);
     
     
@@ -61,8 +61,10 @@
                             <td><?= htmlspecialchars(date("j F, Y", strtotime($user['registerDate']))) ?></td>  
                             <td><?= htmlspecialchars($user['address']) ?></td>
                             <td>
-                                 <form method="POST" action="../controllers/userDelete_controller.php">
-                                    <input type="hidden" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                                 <form method="POST" action="../controllers/admin_controller.php">
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
+
+                                    <input type="hidden" name="action" value="delete">
                                     
                                     <button class="btn reject-btn" type="submit"  ><strong>Delete</strong> </button>
                                 </form>

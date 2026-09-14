@@ -1,13 +1,13 @@
 <?php
     session_start();
-    if(!isset($_SESSION["email"])){
-        header("Location: ../controllers/logout_controller.php");
+    if(!isset($_SESSION["id"])){
+        header("Location: ../views/login.php");
         exit();
     }
 
     require_once(__DIR__."/../config/database.php");
-    require_once(__DIR__."/../controllers/getUser_controller.php");
-    $user = getCurrentUser($pdo, $_SESSION["email"]);
+    require_once(__DIR__."/../models/admin_model.php");
+    $user = getUser($conn, $_SESSION["id"]);
     $errors = $_SESSION["errors"] ?? [];
     $currentEditForm = $_SESSION["editForm"] ?? "";
     unset($_SESSION["errors"], $_SESSION["editForm"]); 
@@ -83,18 +83,26 @@
             </div>
         </fieldset>
 
-        <form id="editPassword-form" class="edit-form" action="../controllers/editPassword_controller.php" method="post">
+        <form id="editPassword-form" class="edit-form" action="../controllers/user_controller.php" method="post">
             <label class="label text-xl">Current Password: </label>
-            <p id="edit-currentPassword-error"><?php echo $errors["currentPassword"] ?? "" ?></p>
+            
             <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
 
+            <p id="edit-currentPassword-error"><?php echo htmlspecialchars($errors["currentPassword"] ?? "") ?></p>
+
             <label class="label text-xl">New Password: </label>
-            <p id="edit-newPassword-error"><?php echo $errors["newPassword"] ?? "" ?></p>
+            
             <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
 
+            <p id="edit-newPassword-error"><?php echo htmlspecialchars($errors["newPassword"] ?? "") ?></p>
+
             <label class="label text-xl">Confirm New Password: </label>
-            <p id="edit-confirmPassword-error"><?php echo $errors["confirmPassword"] ?? "" ?></p>
-            <input id="update-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+            
+            <input id="edit-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+
+            <p id="edit-confirmPassword-error"><?php echo htmlspecialchars($errors["confirmPassword"] ?? "") ?></p>
+
+            <input type="hidden" name="action" value="password">
 
             <div class="btn-container">
                 <button id="editPassword-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>

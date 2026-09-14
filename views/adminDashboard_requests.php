@@ -1,13 +1,13 @@
 <?php
     session_start();
-    if(!isset($_SESSION["email"])){
-        header("Location: ../controllers/logout_controller.php");
+    if(!isset($_SESSION["id"])){
+        header("Location: ../views/login.php");
         exit();
     }
 
     require_once(__DIR__."/../config/database.php");
-    require_once(__DIR__."/../models/getAllRequest_model.php");
-    $requests = getAllRequests($pdo);
+    require_once(__DIR__."/../models/admin_model.php");
+    $requests = getAllRequests($conn);
     
     
 ?>
@@ -62,15 +62,19 @@
                             <td><?= htmlspecialchars(date("j F, Y", strtotime($req['registerDate']))) ?></td>  
                             <td><?= htmlspecialchars($req['address']) ?></td>
                             <td>
-                                 <form method="POST" action="../controllers/requestAccept_controller.php">
-                                    <input type="hidden" name="email" value="<?= htmlspecialchars($req['email']) ?>">
-                                   
+                                 <form method="POST" action="../controllers/admin_controller.php">
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($req['id']) ?>">
+
+                                    <input type="hidden" name="action" value="accept">
+
                                     <button class="btn accept-btn" type="submit"><strong>Accept</strong> </button>
                                 </form>
                             </td>
                             <td>
-                                 <form method="POST" action="../controllers/requestReject_controller.php">
-                                    <input type="hidden" name="email" value="<?= htmlspecialchars($req['email']) ?>">
+                                 <form method="POST" action="../controllers/admin_controller.php">
+                                    <input type="hidden" name="id" value="<?= htmlspecialchars($req['id']) ?>">
+
+                                    <input type="hidden" name="action" value="reject">
                                     
                                     <button class="btn reject-btn" type="submit"  ><strong>Reject</strong> </button>
                                 </form>

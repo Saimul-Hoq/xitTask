@@ -1,13 +1,13 @@
 <?php
     session_start();
-    if(!isset($_SESSION["email"])){
-        header("Location: ../controllers/logout_controller.php");
+    if(!isset($_SESSION["id"])){
+        header("Location: ../views/login.php");
         exit();
     }
 
     require_once(__DIR__."/../config/database.php");
-    require_once(__DIR__."/../controllers/getUser_controller.php");
-    $user = getCurrentUser($conn, $_SESSION["email"]);
+    require_once(__DIR__."/../models/user_model.php");
+    $user = getUser($conn, $_SESSION["id"]);
     $errors = $_SESSION["errors"] ?? [];
     $currentEditForm = $_SESSION["editForm"] ?? "";
     unset($_SESSION["errors"], $_SESSION["editForm"]); 
@@ -40,7 +40,7 @@
             <h3>Profile</h3>
         </div>
         <div class="navbar-end">
-           <a class="btn-ghost text-xl" href="../controllers/authController.php?action=logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+           <a class="btn-ghost text-xl" href="../controllers/auth_controller.php?action=logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
     <div class="body-content">
@@ -93,28 +93,40 @@
             </div>
         </fieldset>
 
-        <form id="editName-form" class="edit-form" action="../controllers/editName_controller.php" method="post">
+        <form id="editName-form" class="edit-form" action="../controllers/user_controller.php" method="post">
             <label class="label text-xl">New Name: </label>
-            <p id="edit-name-error"><?php echo $errors["name"] ?? "" ?></p>
+           
             <input id="edit-name" name="name" type="text" value="<?php echo htmlspecialchars($user["name"] ?? "") ?>" class="input" placeholder="Enter new name" />
+
+            <p id="edit-name-error"><?php echo htmlspecialchars($errors["name"] ?? "") ?></p>
+
+            <input type="hidden" name="action" value="name">
             
             <div class="btn-container">
                 <button id="editName-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
                 <button id="editName-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
-        <form id="editPassword-form" class="edit-form" action="../controllers/editPassword_controller.php" method="post">
+        <form id="editPassword-form" class="edit-form" action="../controllers/user_controller.php" method="post">
             <label class="label text-xl">Current Password: </label>
-            <p id="edit-currentPassword-error"><?php echo $errors["currentPassword"] ?? "" ?></p>
+           
             <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
 
+            <p id="edit-currentPassword-error"><?php echo htmlspecialchars($errors["currentPassword"] ?? "") ?></p>
+
             <label class="label text-xl">New Password: </label>
-            <p id="edit-newPassword-error"><?php echo $errors["newPassword"] ?? "" ?></p>
+            
             <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
 
+            <p id="edit-newPassword-error"><?php echo htmlspecialchars($errors["newPassword"] ?? "") ?></p>
+
             <label class="label text-xl">Confirm New Password: </label>
-            <p id="edit-confirmPassword-error"><?php echo $errors["confirmPassword"] ?? "" ?></p>
+           
             <input id="update-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+
+            <p id="edit-confirmPassword-error"><?php echo htmlspecialchars($errors["confirmPassword"] ?? "") ?></p>
+
+            <input type="hidden" name="action" value="password">
 
             <div class="btn-container">
                 <button id="editPassword-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
@@ -122,10 +134,14 @@
             </div>
         </form>
 
-        <form id="editMobile-form" class="edit-form" action="../controllers/editMobile_controller.php" method="post">
+        <form id="editMobile-form" class="edit-form" action="../controllers/user_controller.php" method="post">
             <label class="label text-xl">New Mobile: </label>
-            <p id="edit-mobile-error"><?php echo $errors["mobile"] ?? "" ?></p>
+           
             <input id="edit-mobile" name="mobile" type="text" value="<?php echo htmlspecialchars($user["mobile"] ?? "") ?>" class="input" placeholder="Enter new mobile number" />
+
+            <p id="edit-mobile-error"><?php echo htmlspecialchars($errors["mobile"] ?? "") ?></p>
+
+            <input type="hidden" name="action" value="mobile">
 
             <div class="btn-container">
                 <button id="editMobile-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
@@ -133,10 +149,14 @@
             </div>
         </form>
 
-        <form id="editAddress-form" class="edit-form" action="../controllers/editAddress_controller.php" method="post">
+        <form id="editAddress-form" class="edit-form" action="../controllers/user_controller.php" method="post">
             <label class="label text-xl">New Address: </label>
-            <p id="edit-address-error"><?php echo $errors["address"] ?? "" ?></p>
+           
             <input id="edit-address" name="address" type="text" value="<?php echo htmlspecialchars($user["address"] ?? "") ?>" class="input" placeholder="Enter new address" />
+
+            <p id="edit-address-error"><?php echo htmlspecialchars($errors["address"] ?? "") ?></p>
+
+            <input type="hidden" name="action" value="address">
 
             <div class="btn-container">
                 <button id="editAddress-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
