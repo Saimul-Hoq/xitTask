@@ -56,7 +56,7 @@
 
         <input type="hidden" name="action" value="login">
 
-        <div class="stack">
+        <div class="stack btn-container">
             <button type="submit" id="login-btn" class="btn btn-primary text-xl">Login</button>
             <p class="text-center text-lg">Don't have an account? <a href="./signup.php">signup</a> </p>
         </div>

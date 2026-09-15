@@ -1,0 +1,165 @@
+.dropdown{
+    position: relative;
+}
+
+.dropdown-menu{
+    position: absolute;
+    /* left: -180px; */
+    /* transform: translateX(-55%); */
+    right: 0%;
+    top: 4rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 7px;
+    text-align: center;
+    max-height: 0;
+    opacity: 0;
+    z-index: 5;
+    overflow: hidden;
+    transition: max-height 0.7s, opacity 0.5s;
+    width: 20vw;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    backdrop-filter: blur(40px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+   
+    box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.20),
+    0 2px 4px rgba(0, 0, 0, 0.18),
+    0 8px 16px rgba(0, 0, 0, 0.16),
+    0 16px 32px rgba(0, 0, 0, 0.18),
+    0 32px 64px rgba(0, 0, 0, 0.20),
+    0 48px 90px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+
+    background-color: #fff5ff;
+}
+
+.open-menu{
+    max-height: 500px;
+    opacity: 1;
+}
+
+.img-name{
+    display: inline-flex;
+    gap: 0.3rem;
+    justify-content: center;
+    align-items: center;
+}
+.img-name img{
+    width: 30px;
+}
+
+
+.dropdown-menu .options a{
+    box-sizing: border-box;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.6rem;         /* a bit of horizontal padding for the highlight to sit in */
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu .options a:hover{
+    background-color: rgba(255, 255, 255, 0.08);   /* the missing obvious feedback */
+}
+
+.dropdown-menu .options a p, 
+.dropdown-menu .options a span,
+.dropdown-menu i,
+.dropdown-menu h6{
+    font-weight: bold;              /* fixed from invalid `font: bold;` */
+    font-size: medium;
+    transition: transform 0.3s, color 0.3s;   /* now color animates too */
+}
+
+.dropdown-menu .options a:hover span{
+    font-size: large;
+    transform: translateX(5px);
+    color: rgb(96, 95, 95);
+}
+
+.dropdown-menu .options a:hover p{
+    color: rgb(96, 95, 95);
+    transform: scale(1.05);
+}
+
+.dropdown-menu .options a:hover i{
+    color: rgb(96, 95, 95);
+    transform: scale(1.05);
+}
+
+
+
+.dropdown-menu .options a .li-content{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.dropdown-menu hr{
+    box-sizing: border-box;
+    margin: 5px 0 5px 0;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #cec9be;
+}
+
+
+.dropdown-menu a{
+    text-decoration: none;
+    background: none;
+    width: 100%;
+    color: inherit;
+}
+
+
+
+@media screen and (max-width: 991px){
+    .navbar{
+        margin-top: 1rem;
+        width: 90%;
+        padding: 0.3rem 1rem;
+    }
+    .navbar-center{
+        display: none;
+    }
+    .navbar-end a{
+        display: none;
+    }
+    #option-btn{
+        display: block;
+    }
+    .dropdown-menu{
+        width: 30vw;
+    }
+
+
+}
+
+
+@media screen and (max-width: 768px){
+    .dropdown-menu{
+        width: 40vw;
+    }
+    .navbar{
+        margin-top: 1rem;
+        width: 90%;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media screen and (max-width: 540px){
+    .dropdown-menu{
+        width: 50vw;
+    }
+    .navbar{
+        padding: 0.2rem 1rem;
+    }
+}
+

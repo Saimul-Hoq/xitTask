@@ -60,5 +60,8 @@ form{
         gap: 1rem;
     }
 }
+.btn-container p{
+    margin-top: 0.5rem;
+}
 
 

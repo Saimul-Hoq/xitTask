@@ -26,13 +26,13 @@ form{
 .btn-area{
     display: flex;
     justify-content: space-around;
-    margin: 2rem 0;
+    margin: 3rem 0 2rem;
 }
 .btn-area a{
-    width: 35%;
+    width: 40%;
 }
 .btn{
-    width: 35%;
+    width: 40%;
 }
 
 @media screen and (max-width: 1440px){

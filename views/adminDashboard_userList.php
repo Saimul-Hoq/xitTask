@@ -32,6 +32,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/adminDashboard_requests.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+
 </head>
 <body>
     <?php include '../includes/navbar.php' ?>
@@ -76,5 +78,6 @@
             </section>
         </div>
     </div>
+    <script type="module" src="../js/navbar.js"></script>
 </body>
 </html>
