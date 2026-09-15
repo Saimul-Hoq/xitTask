@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION["id"])){
-        header("Location: ../controllers/logout_controller.php");
+        header("Location: ../views/login.php");
         exit();
     }
 

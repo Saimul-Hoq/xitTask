@@ -32,10 +32,10 @@
     <h3>Login To Your Account</h3>
     <br>
     <br>
-    <form action="../controllers/auth_controller.php" method="post">
+    <form class="" action="../controllers/auth_controller.php" method="post">
 
         <label class="label text-xl">Email: </label>
-        <input id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="Enter your email" />
+        <input id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="<?php echo htmlspecialchars($errors["email"] ?? "Enter you email") ?>" />
         <p id="login-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
 
         <label class="label  text-xl">Password: </label>
