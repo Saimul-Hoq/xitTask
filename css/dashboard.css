@@ -2,8 +2,8 @@
     position: relative;
 }
 fieldset{
-    width: 60%;
-    padding-bottom: 5rem;
+    width: 60vw;
+    padding-bottom: 4.5rem;
 }
 .top{
     display: flex;
@@ -24,6 +24,7 @@ fieldset{
 }
 .top-right img{
     width: 30%;
+    object-fit: cover;
     border-radius: 10px;
 }
 .middle{
@@ -43,6 +44,7 @@ fieldset{
 .info-field{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 p,i{
     font-size: clamp(0.835rem, 0.845rem + 0.5vw, 1.5rem);
@@ -50,12 +52,7 @@ p,i{
 }
 
 fieldset hr{
-    box-sizing: border-box;
-    margin: 1rem 0 5rem 0;
-    border: 0;
-    height: 1px;
-    width: 100%;
-    background:rgb(103, 103, 103);
+    margin: 2rem 0 4.5rem;
 }
 
 .profile-block{
@@ -64,12 +61,12 @@ fieldset hr{
 }
 .closeProfileBlock{
     transform: scale(0.7);
-    opacity: 0.3;
+    opacity: 0.5;
 }
-.edit-form{
+form{
     position: absolute;
     z-index: -1;
-    width: 30%;
+    width: 30vw;
     align-self: flex-end;
     opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
@@ -90,4 +87,185 @@ fieldset hr{
 #jsEditForm{
     display: none;
 }
+
+
+@media screen and (max-width: 1440px){
+    fieldset{
+        width: 70vw;
+        padding-bottom: 4rem;
+    }
+    fieldset hr{
+        margin-bottom: 4rem;
+    }
+    
+}
+
+
+@media screen and (max-width: 1200px){
+    fieldset{
+        width: 80vw;
+        padding-bottom: 3rem;
+    }
+    fieldset hr{
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (max-width: 991px){
+    fieldset{
+        width: 80vw;
+        padding-bottom: 2rem;
+    }
+     fieldset hr{
+        margin-bottom: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    fieldset{
+        width: 70vw;
+        gap: 1rem;
+        height: auto;
+        overflow: auto;
+        padding-bottom: 1.5rem;
+    }
+    fieldset hr{
+        margin: 1.5rem 0; 
+    }
+    .middle{
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .middle-left, .middle-right{
+        width: 90%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        gap: 1.5rem;
+        /* vertical-align: middle; */
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-right: 0; 
+    }
+    .top-left{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin-left: 0;
+    }
+    .top-right{
+        width: 30%;
+        display: flex;
+        justify-content: end;
+        margin-right: 0;
+    }
+    .top-right img{
+        width: 80%;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 540px){
+    fieldset{
+        width: 80vw;
+        gap: 1rem;
+        height: auto;
+        overflow: auto;
+        padding-bottom: 1.25rem;
+    }
+    fieldset hr{
+        margin: 1.25rem 0;
+    }
+    .middle{
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .middle-left, .middle-right{
+        width: 90%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        gap: 1.5rem;
+        /* vertical-align: middle; */
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-right: 0; 
+    }
+    .top-left{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin-left: 0;
+    }
+    .top-right{
+        width: 30%;
+        display: flex;
+        justify-content: end;
+        margin-right: 0;
+    }
+    .top-right img{
+        width: 90%;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    fieldset{
+        width: 90vw;
+        gap: 1rem;
+        height: auto;
+        overflow: auto;
+        padding-bottom: 1rem;
+    }
+    fieldset hr{
+        margin: 1rem 0;
+    }
+    .middle{
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .middle-left, .middle-right{
+        width: 90%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        gap: 1.5rem;
+        /* vertical-align: middle; */
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0;
+        margin-right: 0; 
+    }
+    .top-left{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        margin-left: 0;
+    }
+    .top-right{
+        width: 30%;
+        display: flex;
+        justify-content: end;
+        margin-right: 0;
+    }
+    .top-right img{
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+
+
 

@@ -29,23 +29,38 @@
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-    <h3>Login To Your Account</h3>
+    
     <br>
     <br>
     <form class="" action="../controllers/auth_controller.php" method="post">
 
-        <label class="label text-xl">Email: </label>
-        <input id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="<?php echo htmlspecialchars($errors["email"] ?? "Enter you email") ?>" />
-        <p id="login-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
+        <div class="stack">
+            <h3 class="text-center">Login To Your Account</h3>
+            <br>
+            <hr>
+        </div>
+       
 
-        <label class="label  text-xl">Password: </label>
-        <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password" />
-        <p id="login-password-error"><?php echo htmlspecialchars($errors["password"] ?? "") ?></p>
+        <div class="stack">
+            <label class="label">Email: </label>
+            <input id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="<?php echo htmlspecialchars($errors["email"] ?? "Enter you email") ?>" />
+            <p id="login-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
+        </div>
+        
+        <div class="stack">
+            <label class="label">Password: </label>
+            <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password" />
+            <p id="login-password-error"><?php echo htmlspecialchars($errors["password"] ?? "") ?></p>
+        </div>
+       
 
         <input type="hidden" name="action" value="login">
 
-        <button type="submit" id="login-btn" class="btn btn-primary text-xl">Login</button>
-        <p class="text-center">Don't have an account? <a href="./signup.php">signup</a> </p>
+        <div class="stack">
+            <button type="submit" id="login-btn" class="btn btn-primary text-xl">Login</button>
+            <p class="text-center text-lg">Don't have an account? <a href="./signup.php">signup</a> </p>
+        </div>
+       
 
     </form>
 </body>

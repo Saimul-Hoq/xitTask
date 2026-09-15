@@ -73,8 +73,8 @@ h6 {
     /* color: rgb(219, 219, 219); */
 }
 
-p {
-    font-size: clamp(0.835rem, 0.845rem + 0.5vw, 1.5rem);
+p, .label {
+    font-size: clamp(0.855rem, 0.845rem + 0.6vw, 1.5rem);
     line-height: 1.6;
     /* color: rgb(219, 219, 219); */
 }
@@ -93,15 +93,18 @@ a{
 
 
 p[id$="-error"]{
-    color: rgb(241, 19, 19);
-    font-size: 0.87rem;
-    min-height: 1rem;
+    /* color: rgb(241, 19, 19); */
+    color: white;
+    font-size: 0.77rem;
+    /* min-height: 1rem; */
     font-family: "Roboto", sans-serif;
-    background-color: #fff9;
-    padding: 2px 6px;
+    /* background-color: #fff9; */
+    background-color: #FF000070;
+    padding: 0 6px;
     width: fit-content; 
     border-radius: 7px;
     font-weight: 500;
+    margin-top: 3px;
 }
 
 
@@ -232,14 +235,6 @@ img{
     object-fit: contain; 
 }
 
-.label{
-    /* color: rgb(219, 219, 219); */
-    /* font-size: 0.885rem; */
-
-}
-i{
-    /* color: rgb(219, 219, 219); */
-}
 
 .input {
     display: inline-flex;
@@ -309,13 +304,13 @@ i{
     cursor: pointer;
     appearance: none;
     border: 1px solid transparent;
-    border-radius: 999px;
+    border-radius: 17px;
     height: 3rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-size: 1rem;
     font-weight: 600;
-    line-height: 1.5rem;
+    line-height: 1.3rem;
     text-align: center;
     text-decoration: none;
     user-select: none;
@@ -353,7 +348,7 @@ i{
 }
 
 .btn-neutral {
-    background-color: #3f7095;
+    background-color: #09409e;
     border-color: #1F2937;
     color: #FFFFFF;
 }
@@ -433,9 +428,6 @@ i{
     margin-left: 0.5rem;
 }
 
-.navbar-start img{
-    width: 150px;
-}
 
 .navbar-center {
     display: flex;
@@ -461,6 +453,15 @@ i{
 .hidden{
     display: none;
     
+}
+
+fieldset hr, form hr{
+    box-sizing: border-box;
+    /* margin: 1rem 0 5rem 0; */
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background:rgb(103, 103, 103);
 }
 
 

@@ -37,7 +37,7 @@
         <div class="field-area">
             <div class="left">
                 <div class="field">
-                    <label class="label text-xl">Name: </label> <br>
+                    <label class="label">Name: </label> <br>
                     
                     <input name="name" id="signup-name" type="text" class="input" placeholder="Enter your name" value="<?php echo htmlspecialchars($oldName) ?>"/>
 
@@ -45,7 +45,7 @@
                 </div>
                
                 <div class="field">
-                    <label class="label text-xl">Email: </label> <br>
+                    <label class="label">Email: </label> <br>
                    
                     <input name="email" id="signup-email" type="text" class="input" placeholder="Enter your email" value="<?php echo htmlspecialchars($oldEmail) ?>"/>
 
@@ -53,7 +53,7 @@
                 </div>
                
                 <div class="field">
-                    <label class="label text-xl">Password: </label> <br>
+                    <label class="label">Password: </label> <br>
                     
                     <input name="password" id="signup-password" type="password" class="input" placeholder="Enter your password" />
 
@@ -63,7 +63,7 @@
             </div>
             <div class="right">
                 <div class="field">
-                    <label class="label text-xl">Phone Number: </label> <br>
+                    <label class="label">Phone Number: </label> <br>
                     
                     <input name="mobile" id="signup-mobile" type="text" class="input" placeholder="01XXXXXXXXX" value="<?php echo htmlspecialchars($oldMobile) ?>"/>
 
@@ -71,7 +71,7 @@
                 </div>
                
                 <div class="field">
-                    <label class="label text-xl">Avatar: </label> <br>
+                    <label class="label">Avatar: </label> <br>
                    
                     <input name="avatar" id="signup-avatar" type="file" accept="image/*" class="input" placeholder="Enter your profile photo (optional)" />
 
@@ -79,7 +79,7 @@
                 </div>
                
                 <div class="field">
-                    <label class="label text-xl">Address: </label> <br>
+                    <label class="label">Address: </label> <br>
                    
                     <input name="address" id="signup-address" type="text" class="input" placeholder="Enter your address" value="<?php echo htmlspecialchars($oldAddress) ?>"/>
 
@@ -91,8 +91,9 @@
         </div>
         <div class="btn-area">
             <a class="btn btn-neutral" href="./login.php">Back</a>
+           
 
-            <button type="submit" id="signup-register-btn" class="btn btn-primary text-xl">Register</button>
+            <button type="submit" id="signup-register-btn" class="btn btn-primary">Register</button>
         </div>
     </form>
 </body>

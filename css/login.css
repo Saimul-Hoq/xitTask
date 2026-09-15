@@ -4,10 +4,61 @@ body{
     justify-content: center;
 }
 form{
-    width: 35%;
+    width: 30vw;
+    gap: 3rem;
+    padding: 2rem 2rem;
 }
 .btn{
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     font-size: 1.3rem;
+    height: 3rem;
 }
+.stack{
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1440px){
+    form{
+        width: 40vw;
+        gap: 3rem;
+    }
+}
+
+
+@media screen and (max-width: 1200px){
+    form{
+        width: 50vw;
+        gap: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 991px){
+    form{
+        width: 60vw;
+        gap: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    form{
+        width: 70vw;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 540px){
+    form{
+        width: 80vw;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 400px){
+    form{
+        width: 90vw;
+        gap: 1rem;
+    }
+}
+
 

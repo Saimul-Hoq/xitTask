@@ -40,7 +40,7 @@
             <h3>Profile</h3>
         </div>
         <div class="navbar-end">
-           <a class="btn-ghost text-xl" href="../controllers/auth_controller.php?action=logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+           <a class="btn-ghost" href="../controllers/auth_controller.php?action=logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
         </div>
     </div>
     <div class="body-content">
@@ -62,13 +62,13 @@
                 <div class="middle-left">
                      <div class="info-field">
                         <p><span class="text-bold">Name: </span> <?php echo htmlspecialchars($user["name"]??"") ?> </p>
-                        <button id="profile-editName-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square text-md"></i></button>
+                        <button id="profile-editName-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                         
                     </div>
 
                     <div class="info-field">
                         <p><span class="text-bold">Password: </span>*****</p>
-                        <button id="profile-editPassword-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square text-md"></i></button>
+                        <button id="profile-editPassword-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
 
                     <div class="info-field">
@@ -78,7 +78,7 @@
                 <div class="middle-right">
                      <div class="info-field">
                         <p><span class="text-bold">Mobile: </span>  <?php echo htmlspecialchars($user["mobile"] ?? "") ?> </p>
-                        <button id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square text-md   "></i></button>
+                        <button id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
 
                     <div class="info-field">
@@ -87,7 +87,7 @@
                     </div>
                     <div class="info-field">
                         <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
-                        <button id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square text-md"></i></button>
+                        <button id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
                 </div>
             </div>
