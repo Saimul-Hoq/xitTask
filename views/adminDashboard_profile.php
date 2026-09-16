@@ -32,7 +32,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <!-- <link rel="stylesheet" href="../css/dashboard.css"> -->
     <link rel="stylesheet" href="../css/adminDashboard_profile.css">
     <link rel="stylesheet" href="../css/navbar.css">
 
@@ -41,81 +41,58 @@
 <body>
     <?php include "../includes/navbar.php" ?>
     <div class="body-content">
-        <fieldset class="profile-block">
-            <div class="top">
-                <div class="top-left">
-                    <h3><?php echo htmlspecialchars($user["name"]) ?></h3>
-                    <p><?php 
-                        if($user["role"]===1) {echo "Admin";}
-                        elseif($user["role"]===2) {echo "User";}
-                    ?></p>
-                </div>
-                <div class="top-right">
-                    <img src="../uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
-                </div>
-            </div>
-            <hr>
-            <div class="middle">
-                <div class="middle-left">
-                     <div class="info-field">
-                        <p><span class="text-bold">Name: </span> <?php echo htmlspecialchars($user["name"]??"") ?> </p> 
-                    </div>
-
-                    <div class="info-field">
-                        <p><span class="text-bold">Password: </span>*****</p>
-                        <button id="profile-editPassword-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square text-md"></i></button>
-                    </div>
-
-                    <div class="info-field">
-                        <p><span class="text-bold">Email: </span>  <?php echo htmlspecialchars($user["email"] ?? "") ?> </p>
-                    </div>
-                </div>
-                <div class="middle-right">
-                     <div class="info-field">
-                        <p><span class="text-bold">Mobile: </span>  <?php echo htmlspecialchars($user["mobile"] ?? "") ?> </p>
-                    </div>
-
-                    <div class="info-field">
-                      <p><span class="text-bold">Register Date: </span> <?php echo htmlspecialchars($user["registerDate"] ? date("j F, Y", strtotime($user["registerDate"])) : "") ?></p>
-                    </div>
-                    <div class="info-field">
-                        <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
-                    </div>
-                </div>
-            </div>
-        </fieldset>
 
         <form id="editPassword-form" class="edit-form" action="../controllers/user_controller.php" method="post">
-            <label class="label text-xl">Current Password: </label>
+            <div class="info-field">
+                <label class="label text-xl">Current Password: </label>
             
-            <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
+                
+                <div class="input-wrapper">
+                   <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
+                    <i class="fa-solid fa-eye eye-open eye" onclick="toggleCurrentPassword(this)"></i>
+                    <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleCurrentPassword(this)"></i>
+                </div>
 
-            <p id="edit-currentPassword-error"><?php echo htmlspecialchars($errors["currentPassword"] ?? "") ?></p>
-
-            <label class="label text-xl">New Password: </label>
+                <p id="edit-currentPassword-error"><?php echo htmlspecialchars($errors["currentPassword"] ?? "") ?></p>
+            </div>
+           
+            <div class="info-field">
+                <label class="label text-xl">New Password: </label>
             
-            <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
+               
+                <div class="input-wrapper">
+                   <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
+                    <i class="fa-solid fa-eye eye-open eye" onclick="toggleNewPassword(this)"></i>
+                    <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleNewPassword(this)"></i>
+                </div>
 
-            <p id="edit-newPassword-error"><?php echo htmlspecialchars($errors["newPassword"] ?? "") ?></p>
-
-            <label class="label text-xl">Confirm New Password: </label>
+                <p id="edit-newPassword-error"><?php echo htmlspecialchars($errors["newPassword"] ?? "") ?></p>
+            </div>
             
-            <input id="edit-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+            <div class="info-field">
+                <label class="label text-xl">Confirm New Password: </label>
+            
+               
 
-            <p id="edit-confirmPassword-error"><?php echo htmlspecialchars($errors["confirmPassword"] ?? "") ?></p>
+                <div class="input-wrapper">
+                   <input id="edit-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+                    <i class="fa-solid fa-eye eye-open eye" onclick="toggleConfirmPassword(this)"></i>
+                    <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleConfirmPassword(this)"></i>
+                </div>
+
+                <p id="edit-confirmPassword-error"><?php echo htmlspecialchars($errors["confirmPassword"] ?? "") ?></p>
+            </div>
+          
 
             <input type="hidden" name="action" value="password">
 
-            <div class="btn-container">
-                <button id="editPassword-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
-                <button id="editPassword-save-btn" type="submit" class="btn btn-primary">Save</button>
-            </div>
+            <button id="editPassword-save-btn" type="submit" class="btn btn-primary">Save</button>
+           
         </form>
 
     </div>
-    <p id="jsEditForm"><?php echo $currentEditForm ?></p>
-   <script type="module" src="../js/adminDashboard.js"></script>
-   <script type="module" src="../js/navbar.js"></script>
+   <script src="../js/passwordField.js"></script>
+   <script src="../js/navbar.js"></script>
 
 </body>
 </html>

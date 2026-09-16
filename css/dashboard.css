@@ -24,6 +24,7 @@ fieldset{
 }
 .top-right img{
     width: 30%;
+    aspect-ratio: 3/3;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -45,6 +46,17 @@ fieldset{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+#change-password{
+    justify-content: end;
+}
+#change-password button{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: auto;
+    padding: 0  0.5rem;
 }
 p,i{
     font-size: clamp(0.835rem, 0.845rem + 0.5vw, 1.5rem);
@@ -91,6 +103,26 @@ form{
 }
 #jsEditForm{
     display: none;
+}
+
+.input{
+    width: 100%;
+}
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper .input {
+    padding-right: 40px; 
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #707070;
 }
 
 

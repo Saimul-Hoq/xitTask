@@ -12,6 +12,15 @@ function getUser($conn, $id){
     return $result;
 }
 
+function updateUserAvatar($conn, $id, $avatar){
+
+    $query = "UPDATE user SET avatar = ? WHERE id = ?;";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $avatar, $id);
+    $stmt->execute();
+    $stmt->close();
+}
+
 function getAddress($conn, $id){
 
     $query = "SELECT address FROM user WHERE id = ?;";

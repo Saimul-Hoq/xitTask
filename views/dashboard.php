@@ -55,6 +55,7 @@
                 </div>
                 <div class="top-right">
                     <img src="../uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
+                    <button id="profile-editAvatar-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
             </div>
             <hr>
@@ -66,29 +67,34 @@
                         
                     </div>
 
-                    <div class="info-field">
-                        <p><span class="text-bold">Password: </span>*****</p>
-                        <button id="profile-editPassword-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
-                    </div>
+                  
 
                     <div class="info-field">
                         <p><span class="text-bold">Email: </span>  <?php echo htmlspecialchars($user["email"] ?? "") ?> </p>
                     </div>
-                </div>
-                <div class="middle-right">
-                     <div class="info-field">
+
+                    <div class="info-field">
                         <p><span class="text-bold">Mobile: </span>  <?php echo htmlspecialchars($user["mobile"] ?? "") ?> </p>
                         <button id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                    </div>
+                </div>
+                <div class="middle-right">
+                   
+                    <div class="info-field">
+                        <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
+                        <button id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
 
                     <div class="info-field">
                       <p><span class="text-bold">Register Date: </span> <?php echo htmlspecialchars($user["registerDate"] ? date("j F, Y", strtotime($user["registerDate"])) : "") ?></p>
                         <!-- <button class="btn-icon"><i class="fa-solid fa-angle-right text-xl   "></i></button> -->
                     </div>
-                    <div class="info-field">
-                        <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
-                        <button id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                   
+
+                    <div class="info-field" id="change-password">
+                        <button id="profile-editPassword-btn" class="btn-icon">Password<i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
+
                 </div>
             </div>
         </fieldset>
@@ -110,19 +116,37 @@
         <form id="editPassword-form" class="edit-form" action="../controllers/user_controller.php" method="post">
             <label class="label text-xl">Current Password: </label>
            
-            <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
+            <!-- <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" /> -->
+
+            <div class="input-wrapper">
+                <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
+                <i class="fa-solid fa-eye eye-open eye" onclick="toggleCurrentPassword(this)"></i>
+                <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleCurrentPassword(this)"></i>
+            </div>
 
             <p id="edit-currentPassword-error"><?php echo htmlspecialchars($errors["currentPassword"] ?? "") ?></p>
 
             <label class="label text-xl">New Password: </label>
             
-            <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
+            <!-- <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" /> -->
+
+            <div class="input-wrapper">
+                <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
+                <i class="fa-solid fa-eye eye-open eye" onclick="toggleNewPassword(this)"></i>
+                <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleNewPassword(this)"></i>
+            </div>
 
             <p id="edit-newPassword-error"><?php echo htmlspecialchars($errors["newPassword"] ?? "") ?></p>
 
             <label class="label text-xl">Confirm New Password: </label>
            
-            <input id="update-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+            <!-- <input id="update-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" /> -->
+
+            <div class="input-wrapper">
+                <input id="edit-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+                <i class="fa-solid fa-eye eye-open eye" onclick="toggleConfirmPassword(this)"></i>
+                <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleConfirmPassword(this)"></i>
+            </div>
 
             <p id="edit-confirmPassword-error"><?php echo htmlspecialchars($errors["confirmPassword"] ?? "") ?></p>
 
@@ -163,8 +187,26 @@
                 <button id="editAddress-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form> 
+
+
+        <form id="editAvatar-form" class="edit-form" action="../controllers/user_controller.php" method="post" enctype="multipart/form-data">
+            <label class="label text-xl">New Profile Photo: </label>
+           
+            <input name="avatar" id="edit-avatar" type="file" accept="image/*" class="input" placeholder="Enter your profile photo" />
+
+            <p id="edit-avatar-error"><?php echo htmlspecialchars($errors["avatar"] ?? "") ?></p>
+
+            <input type="hidden" name="action" value="avatar">
+
+            <div class="btn-container">
+                <button id="editAvatar-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
+                <button id="editAvatar-save-btn" type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form> 
     </div>
     <p id="jsEditForm"><?php echo $currentEditForm ?></p>
-   <script type="module" src="../js/dashboard.js"></script>
+   <script src="../js/dashboard.js"></script>
+   <script src="../js/passwordField.js"></script>
+
 </body>
 </html>

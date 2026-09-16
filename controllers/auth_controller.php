@@ -78,7 +78,7 @@ if(($_POST["action"]??"") === "login"){
 
 
     if($user["role"]===1){
-        header('Location: ../views/adminDashboard_profile.php');
+        header('Location: ../views/adminDashboard_userList.php');
     }
     else{
         header('Location: ../views/dashboard.php');

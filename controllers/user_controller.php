@@ -160,6 +160,109 @@ elseif(($_POST["action"] === "address")){
     header("Location: ../views/dashboard.php");
     exit();
 }
+elseif (($_POST["action"] ?? "") === "avatar") {
+
+    $id = $_SESSION["id"] ?? "";
+
+    if ($id === "") {
+        header('Location: ../views/login.php');
+        exit;
+    }
+
+    $errors = [];
+
+    function isAvatarInvalid(&$errors, &$avatarFilename, $id, $avatarTmpPath, $avatarUploadError){
+
+        if ($avatarUploadError !== UPLOAD_ERR_OK) {
+            $errors["avatar"] = "Error uploading avatar.";
+            return true;
+        }
+
+        $realMime = mime_content_type($avatarTmpPath);
+        $allowedMimes = [
+            "image/jpeg" => "jpg",
+            "image/png"  => "png",
+            "image/webp" => "webp",
+        ];
+
+        if (!array_key_exists($realMime, $allowedMimes)) {
+            $errors["avatar"] = "Invalid file type.";
+            return true;
+        }
+
+        if (filesize($avatarTmpPath) > 2 * 1024 * 1024) {
+            $errors["avatar"] = "File too large. File must be within 2MB.";
+            return true;
+        }
+
+        $ext = $allowedMimes[$realMime];
+        $avatarFilename = "user_" . $id . "." . $ext;
+
+        return false;
+    }
+
+
+   
+    function saveAvatarFile($avatarTmpPath, $avatarFilename){
+        $destination = __DIR__ . "/../uploads/" . $avatarFilename;
+        return move_uploaded_file($avatarTmpPath, $destination);
+    }
+
+    function deleteAvatarFile($avatarFilename){
+        $path = __DIR__ . "/../uploads/" . $avatarFilename;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+    }
+
+
+  
+
+    $avatarTmpPath = $_FILES["avatar"]["tmp_name"] ?? "";
+    $avatarUploadError = $_FILES["avatar"]["error"] ?? UPLOAD_ERR_NO_FILE;
+    $avatarProvided = $avatarUploadError !== UPLOAD_ERR_NO_FILE;
+
+    $newAvatarFilename = "";
+
+    if(!$avatarProvided){
+        $errors["avatar"] = "Please upload a avatar";
+        $_SESSION["errors"] = $errors;
+        $_SESSION["editForm"] = "avatar";
+        header('Location: ../views/dashboard.php');
+        exit;
+    }
+
+    if (isAvatarInvalid($errors, $newAvatarFilename, $id, $avatarTmpPath, $avatarUploadError)) {
+        $_SESSION["errors"] = $errors;
+        $_SESSION["editForm"] = "avatar";
+        header('Location: ../views/dashboard.php');
+        exit;
+    }
+
+    $currentUser = getUser($conn, $id);
+    $currentAvatar = $currentUser["avatar"];
+
+    if ($currentAvatar !== $newAvatarFilename && $currentAvatar !== "default.png") {
+        deleteAvatarFile($currentAvatar);
+    }
+
+    if (!saveAvatarFile($avatarTmpPath, $newAvatarFilename)) {
+        $errors["avatar"] = "Failed to save avatar.";
+
+        $_SESSION["errors"] = $errors;
+        $_SESSION["editForm"] = "avatar";
+
+        header("Location: ../views/dashboard.php");
+        exit;
+    }
+
+    updateUserAvatar($conn, $id, $newAvatarFilename);
+
+   
+
+    header('Location: ../views/dashboard.php');
+    exit;
+}
 else{
     header("Location: ../views/login.php");
     exit();

@@ -43,7 +43,7 @@
                 <h4>User List</h4>
             </section>
             <section class="table-body">
-                <table>
+                <table id="table">
                     <thead>
                         <tr>
                             <th> User </th>
@@ -63,13 +63,22 @@
                             <td><?= htmlspecialchars(date("j F, Y", strtotime($user['registerDate']))) ?></td>  
                             <td><?= htmlspecialchars($user['address']) ?></td>
                             <td>
-                                 <form method="POST" action="../controllers/admin_controller.php">
+
+                                 <form class="hidden rejectPopup" method="POST" action="../controllers/admin_controller.php">
+                                    <p>Do you want to Delete <?php echo htmlspecialchars($user["name"]??"this user") ?>?</p>
+
                                     <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
 
-                                    <input type="hidden" name="action" value="delete">
-                                    
-                                    <button class="btn reject-btn" type="submit"  ><strong>Delete</strong> </button>
+                                     <input type="hidden" name="action" value="delete">
+
+                                    <div class="btn-area">
+                                        <button type="button" class="btn accept-btn" onclick="openRejectPopup(this)">No</button>
+                                        <button class="btn reject-btn" type="submit">Yes</button>
+                                    </div>
+
                                 </form>
+
+                                <button onclick="openRejectPopup(this)" class="btn reject-btn" type="button"  ><strong>Delete</strong></button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
@@ -78,6 +87,8 @@
             </section>
         </div>
     </div>
-    <script type="module" src="../js/navbar.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/request.js"></script>
+
 </body>
 </html>

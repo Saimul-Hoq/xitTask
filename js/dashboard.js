@@ -56,6 +56,19 @@ document.querySelector("#editAddress-cancel-btn").addEventListener("click", () =
     setProfileButtonsDisabled(false);
 });
 
+// Avatar
+document.querySelector("#profile-editAvatar-btn").addEventListener("click", () => {
+    document.querySelector(".profile-block").classList.add("closeProfileBlock");
+    document.querySelector("#editAvatar-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+});
+
+document.querySelector("#editAvatar-cancel-btn").addEventListener("click", () => {
+    document.querySelector(".profile-block").classList.remove("closeProfileBlock");
+    document.querySelector("#editAvatar-form").classList.remove("openEditForm");
+    setProfileButtonsDisabled(false);
+});
+
 let currentEditForm = document.querySelector("#jsEditForm").textContent;
 if(currentEditForm === "name"){
     document.querySelector(".profile-block").classList.add("closeProfileBlock");
@@ -75,5 +88,10 @@ if(currentEditForm === "mobile"){
 if(currentEditForm === "address"){
     document.querySelector(".profile-block").classList.add("closeProfileBlock");
     document.querySelector("#editAddress-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+}
+if(currentEditForm === "avatar"){
+    document.querySelector(".profile-block").classList.add("closeProfileBlock");
+    document.querySelector("#editAvatar-form").classList.add("openEditForm");
     setProfileButtonsDisabled(true);
 }

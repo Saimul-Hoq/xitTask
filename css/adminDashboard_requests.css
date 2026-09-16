@@ -1,5 +1,5 @@
 
-form{
+.acceptForm{
     all: unset;
     display: inline;
 }
@@ -31,6 +31,7 @@ table, th, td{
     border-collapse: collapse;
 }
 .table{
+    position: relative;
     width: 80vw;
     height: 80vh;
     background: rgba(255, 255, 255, 0.12);
@@ -103,15 +104,68 @@ tbody tr:hover{
 .navbar-center a:hover{
     transform: scale(1.2);
 }
+.table-disabled {
+  pointer-events: none;
+  /* opacity: 0.5; */
+}
+.table-enabled {
+    pointer-events:visible;
+    /* opacity: 1; */
+}
+
+.rejectPopup{
+    position: absolute;
+    width: 25vw;
+    padding: 1.5rem;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    background-color: #fff8;
+    transform: translate(-50%, -50%);
+    
+}
+.btn-area{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+.btn-area button{
+    width: 40%;
+    font-size: 1.5rem;
+    height: 2.5rem;
+}
+@media screen and (max-width: 1440px){
+    .rejectPopup{
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .rejectPopup{
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .rejectPopup{
+        width: 50vw;
+    }
+}
 
 @media screen and (max-width: 768px){
     td{
         padding: 0.4rem 1rem;
+    }
+    .rejectPopup{
+        width: 60vw;
     }
 }
 
 @media screen and (max-width: 400px){
     td{
         padding: 0.2rem 1rem;
+    }
+    .rejectPopup{
+        width: 70vw;
     }
 }

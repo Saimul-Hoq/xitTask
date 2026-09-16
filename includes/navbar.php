@@ -6,9 +6,9 @@
              
         </div>
         <div class="navbar-center">
-            <a href="./adminDashboard_profile.php">Profile</a>
             <a href="./adminDashboard_userList.php">User List</a>
             <a href="./adminDashboard_requests.php">Requests</a>
+            <a href="./adminDashboard_profile.php">Password</a>
         </div>
         <div class="navbar-end">
             <a class="btn-ghost text-2xl text-bold" href="../controllers/auth_controller.php?action=logout">Logout   <i class="fa-solid fa-right-from-bracket"></i></a>
@@ -23,13 +23,6 @@
                         <hr> -->
                         <div class="options">
                             <ul>
-                                <a href="../views/adminDashboard_profile.php">
-                                    <div class="li-content">
-                                        <i class="fa-regular fa-circle-user text-gray"></i>
-                                        <p class="text-semibold">Profile</p>
-                                    </div>
-                                    <span>></span>
-                                </a>
 
                                 <a href="../views/adminDashboard_userList.php">
                                     <div class="li-content">
@@ -47,6 +40,14 @@
                                     <span>></span>
                                 </a>
 
+                                <a href="../views/adminDashboard_profile.php">
+                                    <div class="li-content">
+                                        <i class="fa-regular fa-circle-user text-gray"></i>
+                                        <p class="text-semibold">Password</p>
+                                    </div>
+                                    <span>></span>
+                                </a>
+
                                 <a href="../controllers/auth_controller.php?action=logout">
                                     <div class="li-content">
                                         <i class="fa-solid fa-right-from-bracket text-gray"></i>
@@ -54,6 +55,8 @@
                                     </div>
                                     <span>></span>
                                 </a>
+
+                               
                             </ul>
                         </div>
                     </div>
