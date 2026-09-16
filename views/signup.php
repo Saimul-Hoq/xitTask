@@ -33,7 +33,6 @@
     
     
     <form id="signup-form" action="../controllers/auth_controller.php" method="post" enctype="multipart/form-data">
-    <fieldset id="fieldset">
         <h4 class="text-center">Register Your Account</h4>
         <hr>
         <div class="field-area">
@@ -97,7 +96,6 @@
 
             <button id="signup-register-btn" type="submit" id="signup-register-btn" class="btn btn-primary">Register</button>
         </div>
-    </fieldset>
     </form>
    
 
