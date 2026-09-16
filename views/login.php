@@ -49,7 +49,13 @@
         
         <div class="stack">
             <label class="label">Password: </label>
-            <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password" />
+            
+            <div class="input-wrapper">
+                <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password"  />
+                <i class="fa-solid fa-eye eye-open"></i>
+                <i class="fa-solid fa-eye-slash eye-close hidden"></i>
+            </div>
+            
             <p id="login-password-error"><?php echo htmlspecialchars($errors["password"] ?? "") ?></p>
         </div>
        
@@ -63,5 +69,6 @@
        
 
     </form>
+    <script type="module" src="../js/login.js"></script>
 </body>
 </html>

@@ -16,11 +16,11 @@
             <button id="option-btn" class="btn-icon hidden"><i class="fa-solid fa-bars"></i></button>
 
             <div id="dropdown-menu" class="dropdown-menu">
-                        <div class="img-name">
+                        <!-- <div class="img-name">
                             <i class="fa-solid fa-circle-user"></i>
                             <h6>Saimul Hoque</h6>
                         </div>
-                        <hr>
+                        <hr> -->
                         <div class="options">
                             <ul>
                                 <a href="../views/adminDashboard_profile.php">
