@@ -5,6 +5,7 @@
     $oldName = $_SESSION["oldName"] ?? "";
     $oldMobile = $_SESSION["oldMobile"] ?? "";
     $oldAddress = $_SESSION["oldAddress"] ?? "";
+    $showSuccess = isset($_GET['status']) && $_GET['status'] === 'success';
 
     unset($_SESSION["errors"], $_SESSION["oldEmail"], $_SESSION["oldName"], $_SESSION["oldMobile"], $_SESSION["oldAddress"]);
 ?>
@@ -31,7 +32,8 @@
 <body>
     
     
-    <form action="../controllers/auth_controller.php" method="post" enctype="multipart/form-data">
+    <form id="signup-form" action="../controllers/auth_controller.php" method="post" enctype="multipart/form-data">
+    <fieldset id="fieldset">
         <h4 class="text-center">Register Your Account</h4>
         <hr>
         <div class="field-area">
@@ -90,11 +92,23 @@
             </div>
         </div>
         <div class="btn-area">
-            <a class="btn btn-neutral" href="./login.php">Back</a>
+            <a id="signup-back-btn" class="btn btn-neutral" href="./login.php">Back</a>
            
 
-            <button type="submit" id="signup-register-btn" class="btn btn-primary">Register</button>
+            <button id="signup-register-btn" type="submit" id="signup-register-btn" class="btn btn-primary">Register</button>
         </div>
+    </fieldset>
     </form>
+   
+
+  
+
+    <fieldset id="successPopup">
+        <p>Your account is waiting for admin's approval. Before login please wait until admin approves.</p>
+        <h4 id="status" class="hidden"><?php echo $showSuccess?"true":"false" ?></h4>
+        <a href="./login.php" class="btn-icon">Ok</a>
+    </fieldset>
+
+    <script type="module" src="../js/signup.js"></script>
 </body>
 </html>

@@ -210,7 +210,7 @@ elseif(($_POST["action"]??"") === "signup"){
     unset($_SESSION["oldName"], $_SESSION["oldEmail"], $_SESSION["oldMobile"], 
     $_SESSION["oldAddress"]);
 
-    header('Location: ../views/login.php');
+    header('Location: ../views/signup.php?status=success');
     exit;
 }
 else{

@@ -183,7 +183,7 @@ p[id$="-error"]{
 }
 
 
-form, fieldset{
+form, fieldset, dialog{
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
@@ -238,7 +238,7 @@ img{
     appearance: none;
     background-color: #f6fbfc;
     border: 1px solid #c8e5ee;
-    border-radius: 0.375rem;
+    border-radius: 0.385rem;
     height: 2.5rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;

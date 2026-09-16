@@ -10,8 +10,7 @@ body{
     margin-top: 1.5rem;
 }
 form{
-    width: 50vw;
-    padding: 1.25rem 2rem;
+   all: unset;
 }
 .input{
     box-sizing: border-box;
@@ -35,9 +34,39 @@ form{
     width: 40%;
 }
 
+#successPopup{
+    position: absolute;
+    width: 31vw;
+    background-color: #fff7;
+    z-index: -5;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+#successPopup.open{
+    z-index: 4;
+    opacity: 1;
+}
+#successPopup a{
+    font-weight: bold;
+    align-self: flex-end;
+    margin-right: 1rem;
+}
+#signup-form{
+    width: 50vw;
+    padding: 1.25rem 2rem;
+    transition: opacity 0.5s, scale 0.5s;
+}
+#signup-form.success{
+    opacity: 0.5;
+    scale: 0.7;
+}
+
 @media screen and (max-width: 1440px){
     form{
         width: 60vw;
+    }
+    #successPopup{
+        width: 35vw;
     }
 }
 
@@ -45,11 +74,17 @@ form{
     form{
         width: 70vw;
     }
+    #successPopup{
+        width: 40vw;
+    }
 }
 
 @media screen and (max-width: 991px){
     form{
         width: 80vw;
+    }
+    #successPopup{
+        width: 50vw;
     }
 }
 
@@ -76,6 +111,9 @@ form{
     .btn{
         width: 45%;
     }
+    #successPopup{
+        width: 60vw;
+    }
 }
 
 @media screen and (max-width: 540px){
@@ -101,6 +139,9 @@ form{
     .btn{
         width: 45%;
     }
+    #successPopup{
+        width: 70vw;
+    }
 }
 
 @media screen and (max-width: 400px){
@@ -125,5 +166,8 @@ form{
     }
     .btn{
         width: 45%;
+    }
+    #successPopup{
+        width: 80vw;
     }
 }
