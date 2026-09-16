@@ -1,3 +1,5 @@
-document.querySelector("#option-btn").addEventListener("click", () => {
-    document.querySelector("#dropdown-menu").classList.toggle("open-menu");
-})
+
+
+function openDropdown(e){
+    document.getElementById("dropdown-menu").classList.toggle("open-menu");
+}

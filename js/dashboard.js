@@ -1,97 +1,108 @@
 function setProfileButtonsDisabled(disabled) {
-    document.querySelectorAll(".profile-block button").forEach((btn) => {
+    document.querySelectorAll("#profile-block button").forEach((btn) => {
         btn.disabled = disabled;
     });
 }
 
-// Name
-document.querySelector("#profile-editName-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editName-form").classList.add("openEditForm");
-    setProfileButtonsDisabled(true);
-});
+const profileBlock = document.getElementById("profile-block");
 
-document.querySelector("#editName-cancel-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.remove("closeProfileBlock");
-    document.querySelector("#editName-form").classList.remove("openEditForm");
+// Name
+
+function openEditNameForm(e){
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editName-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+}
+
+function closeEditNameForm(e){
+    profileBlock.classList.remove("closeProfileBlock");
+    document.getElementById("editName-form").classList.remove("openEditForm");
     setProfileButtonsDisabled(false);
-});
+}
 
 // Password
-document.querySelector("#profile-editPassword-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editPassword-form").classList.add("openEditForm");
-    setProfileButtonsDisabled(true);
-});
 
-document.querySelector("#editPassword-cancel-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.remove("closeProfileBlock");
-    document.querySelector("#editPassword-form").classList.remove("openEditForm");
+
+function openEditPasswordForm(e){
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editPassword-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+}
+
+function closeEditPasswordForm(e){
+    profileBlock.classList.remove("closeProfileBlock");
+    document.getElementById("editPassword-form").classList.remove("openEditForm");
     setProfileButtonsDisabled(false);
-});
+}
 
 // Mobile
-document.querySelector("#profile-editMobile-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editMobile-form").classList.add("openEditForm");
-    setProfileButtonsDisabled(true);
-});
 
-document.querySelector("#editMobile-cancel-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.remove("closeProfileBlock");
-    document.querySelector("#editMobile-form").classList.remove("openEditForm");
+function openEditMobileForm(e){
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editMobile-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+}
+
+
+function closeEditMobileForm(e){
+    profileBlock.classList.remove("closeProfileBlock");
+    document.getElementById("editMobile-form").classList.remove("openEditForm");
     setProfileButtonsDisabled(false);
-});
+}
 
 // Address
-document.querySelector("#profile-editAddress-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editAddress-form").classList.add("openEditForm");
-    setProfileButtonsDisabled(true);
-});
 
-document.querySelector("#editAddress-cancel-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.remove("closeProfileBlock");
-    document.querySelector("#editAddress-form").classList.remove("openEditForm");
+function openEditAddressForm(e){
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editAddress-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+}
+
+
+function closeEditAddressForm(e){
+    profileBlock.classList.remove("closeProfileBlock");
+    document.getElementById("editAddress-form").classList.remove("openEditForm");
     setProfileButtonsDisabled(false);
-});
+}
 
 // Avatar
-document.querySelector("#profile-editAvatar-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editAvatar-form").classList.add("openEditForm");
-    setProfileButtonsDisabled(true);
-});
 
-document.querySelector("#editAvatar-cancel-btn").addEventListener("click", () => {
-    document.querySelector(".profile-block").classList.remove("closeProfileBlock");
-    document.querySelector("#editAvatar-form").classList.remove("openEditForm");
+function openEditAvatarForm(e){
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editAvatar-form").classList.add("openEditForm");
+    setProfileButtonsDisabled(true);
+}
+
+
+function closeEditAvatarForm(e){
+    profileBlock.classList.remove("closeProfileBlock");
+    document.getElementById("editAvatar-form").classList.remove("openEditForm");
     setProfileButtonsDisabled(false);
-});
+}
 
 let currentEditForm = document.querySelector("#jsEditForm").textContent;
 if(currentEditForm === "name"){
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editName-form").classList.add("openEditForm");
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editName-form").classList.add("openEditForm");
     setProfileButtonsDisabled(true);
 }
 if(currentEditForm === "password"){
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editPassword-form").classList.add("openEditForm");
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editPassword-form").classList.add("openEditForm");
     setProfileButtonsDisabled(true);
 }
 if(currentEditForm === "mobile"){
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editMobile-form").classList.add("openEditForm");
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editMobile-form").classList.add("openEditForm");
     setProfileButtonsDisabled(true);
 }
 if(currentEditForm === "address"){
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editAddress-form").classList.add("openEditForm");
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editAddress-form").classList.add("openEditForm");
     setProfileButtonsDisabled(true);
 }
 if(currentEditForm === "avatar"){
-    document.querySelector(".profile-block").classList.add("closeProfileBlock");
-    document.querySelector("#editAvatar-form").classList.add("openEditForm");
+    profileBlock.classList.add("closeProfileBlock");
+    document.getElementById("editAvatar-form").classList.add("openEditForm");
     setProfileButtonsDisabled(true);
 }

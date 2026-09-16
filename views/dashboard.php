@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="body-content">
-        <fieldset class="profile-block">
+        <fieldset id="profile-block">
             <div class="top">
                 <div class="top-left">
                     <h3><?php echo htmlspecialchars($user["name"]) ?></h3>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="top-right">
                     <img src="../uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
-                    <button id="profile-editAvatar-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button onclick="openEditAvatarForm(this)" id="profile-editAvatar-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                 </div>
             </div>
             <hr>
@@ -63,7 +63,7 @@
                 <div class="middle-left">
                      <div class="info-field">
                         <p><span class="text-bold">Name: </span> <?php echo htmlspecialchars($user["name"]??"") ?> </p>
-                        <button id="profile-editName-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="openEditNameForm(this)" id="profile-editName-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                         
                     </div>
 
@@ -75,14 +75,14 @@
 
                     <div class="info-field">
                         <p><span class="text-bold">Mobile: </span>  <?php echo htmlspecialchars($user["mobile"] ?? "") ?> </p>
-                        <button id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="openEditMobileForm(this)" id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
                 </div>
                 <div class="middle-right">
                    
                     <div class="info-field">
                         <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
-                        <button id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="openEditAddressForm(this)" id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
 
                     <div class="info-field">
@@ -92,7 +92,7 @@
                    
 
                     <div class="info-field" id="change-password">
-                        <button id="profile-editPassword-btn" class="btn-icon">Password<i class="fa-solid fa-pen-to-square"></i></button>
+                        <button onclick="openEditPasswordForm(this)" id="profile-editPassword-btn" class="btn-icon">Password<i class="fa-solid fa-pen-to-square"></i></button>
                     </div>
 
                 </div>
@@ -109,7 +109,7 @@
             <input type="hidden" name="action" value="name">
             
             <div class="btn-container">
-                <button id="editName-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
+                <button onclick="closeEditNameForm(this)" id="editName-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
                 <button id="editName-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
@@ -153,7 +153,7 @@
             <input type="hidden" name="action" value="password">
 
             <div class="btn-container">
-                <button id="editPassword-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
+                <button onclick="closeEditPasswordForm(this)" id="editPassword-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
                 <button id="editPassword-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
@@ -168,7 +168,7 @@
             <input type="hidden" name="action" value="mobile">
 
             <div class="btn-container">
-                <button id="editMobile-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
+                <button onclick="closeEditMobileForm(this)" id="editMobile-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
                 <button id="editMobile-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
@@ -183,7 +183,7 @@
             <input type="hidden" name="action" value="address">
 
             <div class="btn-container">
-                <button id="editAddress-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
+                <button onclick="closeEditAddressForm(this)" id="editAddress-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
                 <button id="editAddress-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form> 
@@ -199,7 +199,7 @@
             <input type="hidden" name="action" value="avatar">
 
             <div class="btn-container">
-                <button id="editAvatar-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
+                <button onclick="closeEditAvatarForm(this)" id="editAvatar-cancel-btn" type="button" class="btn btn-neutral">Cancel</button>
                 <button id="editAvatar-save-btn" type="submit" class="btn btn-primary">Save</button>
             </div>
         </form> 

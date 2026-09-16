@@ -13,7 +13,7 @@
         <div class="navbar-end">
             <a class="btn-ghost text-2xl text-bold" href="../controllers/auth_controller.php?action=logout">Logout   <i class="fa-solid fa-right-from-bracket"></i></a>
 
-            <button id="option-btn" class="btn-icon hidden"><i class="fa-solid fa-bars"></i></button>
+            <button onclick="openDropdown(this)" id="option-btn" class="btn-icon hidden"><i class="fa-solid fa-bars"></i></button>
 
             <div id="dropdown-menu" class="dropdown-menu">
                         <!-- <div class="img-name">

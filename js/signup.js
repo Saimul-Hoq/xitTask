@@ -1,14 +1,4 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const dialog = document.getElementById('successDialog');
 
-//     if (dialog.dataset.showSuccess === '1') {
-//         dialog.showModal();
-//     }
-
-//     document.getElementById('closeDialog').addEventListener('click', () => {
-//         dialog.close();
-//     });
-// });
 
 let successStatus = document.getElementById("status").textContent;
 if(successStatus === "true"){

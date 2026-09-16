@@ -52,8 +52,8 @@
             
             <div class="input-wrapper">
                 <input id="login-password" name="password" type="password" class="input" placeholder="Enter your password"  />
-                <i class="fa-solid fa-eye eye-open"></i>
-                <i class="fa-solid fa-eye-slash eye-close hidden"></i>
+                <i onclick="eyeOpenFn(this)" id="eye-open" class="fa-solid fa-eye "></i>
+                <i onclick="eyeCloseFn(this)" id="eye-close" class="fa-solid fa-eye-slash  hidden"></i>
             </div>
             
             <p id="login-password-error"><?php echo htmlspecialchars($errors["password"] ?? "") ?></p>
@@ -69,6 +69,6 @@
        
 
     </form>
-    <script type="module" src="../js/login.js"></script>
+    <script src="../js/login.js"></script>
 </body>
 </html>
