@@ -3,17 +3,19 @@ session_start();
 
 require_once(__DIR__."/../config/database.php");
 require_once(__DIR__."/../models/auth_model.php");
+$BASE_PATH = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+$BASE_PATH = $BASE_PATH."/..";
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['action'] ?? '') === 'logout') {
     $_SESSION = [];
     session_destroy();
 
-    header('Location: /login');
+    header('Location: '.$BASE_PATH."/");
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /signup');
+    header('Location: '.$BASE_PATH."/signup");
     exit;
 }
 
@@ -39,7 +41,7 @@ if(($_POST["action"]??"") === "login"){
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
 
-        header('Location: /login');
+        header('Location: '.$BASE_PATH."/");
         exit;
     }
 
@@ -51,7 +53,7 @@ if(($_POST["action"]??"") === "login"){
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
 
-        header('Location: /login');
+        header('Location: '.$BASE_PATH."/");
         exit;
     }
    
@@ -65,7 +67,7 @@ if(($_POST["action"]??"") === "login"){
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
 
-        header('Location: /login');
+        header('Location: '.$BASE_PATH."/");
         exit;
     }
 
@@ -78,10 +80,10 @@ if(($_POST["action"]??"") === "login"){
 
 
     if($user["role"]===1){
-        header('Location: /admin/userList');
+        header('Location: '.$BASE_PATH.'/admin/userList');
     }
     else{
-        header('Location: /user');
+        header('Location: '.$BASE_PATH.'/user');
     }
     exit;
 }
