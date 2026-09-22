@@ -35,14 +35,7 @@
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-start">
-            <h3>Profile</h3>
-        </div>
-        <div class="navbar-end">
-           <a class="btn-ghost text-bold" href="../controllers/auth_controller.php?action=logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
-    </div>
+    <?php include(__DIR__."/../includes/userNavbar.php") ?>
     <div class="body-content">
         <fieldset id="profile-block">
             <div class="top">

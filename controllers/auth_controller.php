@@ -8,12 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['action'] ?? '') === 'logout'
     $_SESSION = [];
     session_destroy();
 
-    header('Location: ../views/login.php');
+    header('Location: /login');
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../views/signup.php');
+    header('Location: /signup');
     exit;
 }
 
@@ -39,7 +39,7 @@ if(($_POST["action"]??"") === "login"){
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
 
-        header('Location: ../views/login.php');
+        header('Location: /login');
         exit;
     }
 
@@ -51,7 +51,7 @@ if(($_POST["action"]??"") === "login"){
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
 
-        header('Location: ../views/login.php');
+        header('Location: /login');
         exit;
     }
    
@@ -65,7 +65,7 @@ if(($_POST["action"]??"") === "login"){
         $_SESSION['errors'] = $errors;
         $_SESSION['oldEmail'] = $email;
 
-        header('Location: ../views/login.php');
+        header('Location: /login');
         exit;
     }
 
@@ -78,10 +78,10 @@ if(($_POST["action"]??"") === "login"){
 
 
     if($user["role"]===1){
-        header('Location: ../views/adminDashboard_userList.php');
+        header('Location: /admin/userList');
     }
     else{
-        header('Location: ../views/dashboard.php');
+        header('Location: /user');
     }
     exit;
 }
