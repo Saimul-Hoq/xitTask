@@ -2,8 +2,8 @@
 
     $host = "localhost";
     $dbName = "xit_task";
-    $dbUsername = "root";
-    $dbPassword = "";
+    $dbUsername = "saim";
+    $dbPassword = "saim1234";
 
     $conn = new mysqli($host, $dbUsername, $dbPassword,$dbName);
 

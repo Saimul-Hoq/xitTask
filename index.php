@@ -26,9 +26,9 @@
     <!-- CSS -->
     <!-- <link rel="stylesheet" href="./css/adminDashboard_profile.css"> -->
     <!-- <link rel="stylesheet" href="./css/adminDashboard_requests.css"> -->
-    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="/projects/xitTask/css/common.css">
     <!-- <link rel="stylesheet" href="./css/dashboard.css"> -->
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="/projects/xitTask/css/login.css">
     <!-- <link rel="stylesheet" href="./css/navbar.css"> -->
     <!-- <link rel="stylesheet" href="./css/signup.css"> -->
     

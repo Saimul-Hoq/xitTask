@@ -36,11 +36,8 @@
             $page = "/views/adminDashboard_profile.php";
             break;
         default:
-            $pageId = 1;
-            $pageName = "login";
-            $page = "/views/login.php";
-            break;
-
+            header("Location: " . $BASE_PATH . "/");
+            exit;
     }
 
     $_SESSION["pageId"] = $pageId;

@@ -1,8 +1,9 @@
 RewriteEngine On
 
-# If the requested path is NOT a real file or folder...
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# Allow direct access ONLY to genuine public assets
+RewriteCond %{REQUEST_URI} /(css|js|assets|uploads)/
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
 
-# ...send it to index.php
+# Everything else goes through index.php
 RewriteRule ^ index.php [L]
