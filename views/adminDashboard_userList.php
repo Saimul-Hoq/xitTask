@@ -14,84 +14,56 @@
     
     
 ?>
+<div class="table">
+    <section class="table-header">
+        <h4>User List</h4>
+    </section>
+    <section class="table-body">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th> User </th>
+                    <th> Email </th>
+                    <th> Mobile </th>
+                    <th> Date </th>
+                    <th>Address</th>
+                    <th> Delete </th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                <tr>
+                    <td class="withImage"> <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user['avatar'] ?? 'default.png') ?>"> <?= htmlspecialchars($user['name']) ?> </td>
+                    <td><?= htmlspecialchars($user['email']) ?></td>
+                    <td><?= htmlspecialchars($user['mobile']) ?></td>
+                    <td><?= htmlspecialchars(date("j F, Y", strtotime($user['registerDate']))) ?></td>  
+                    <td><?= htmlspecialchars($user['address']) ?></td>
+                    <td>
+
+                            <form class="hidden rejectPopup" method="POST" action="/projects/xitTask/">
+                            <p>Do you want to Delete <?php echo htmlspecialchars($user["name"]??"this user") ?>?</p>
+
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
+
+                                <input type="hidden" name="action" value="delete">
+                                <input type="hidden" name="controller" value="admin">
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xitTask | User List</title>
-    <link rel="shortcut icon" href="../assets/xit_logo.png" type="image/x-icon">
-    
-    <!-- font  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+                            <div class="btn-area">
+                                <button type="button" class="btn accept-btn" onclick="openRejectPopup(this)">No</button>
+                                <button class="btn reject-btn" type="submit">Yes</button>
+                            </div>
 
-    <!-- icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                        </form>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/adminDashboard_requests.css">
-    <link rel="stylesheet" href="../css/navbar.css">
+                        <button onclick="openRejectPopup(this)" class="btn reject-btn" type="button"  ><strong>Delete</strong></button>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </section>
+</div>
 
-</head>
-<body>
-    <?php include '../includes/navbar.php' ?>
-    <div class="body-content">
-        <div class="table">
-            <section class="table-header">
-                <h4>User List</h4>
-            </section>
-            <section class="table-body">
-                <table id="table">
-                    <thead>
-                        <tr>
-                            <th> User </th>
-                            <th> Email </th>
-                            <th> Mobile </th>
-                            <th> Date </th>
-                            <th>Address</th>
-                            <th> Delete </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($users as $user): ?>
-                        <tr>
-                            <td class="withImage"> <img src="../uploads/<?= htmlspecialchars($user['avatar'] ?? 'default.png') ?>"> <?= htmlspecialchars($user['name']) ?> </td>
-                            <td><?= htmlspecialchars($user['email']) ?></td>
-                            <td><?= htmlspecialchars($user['mobile']) ?></td>
-                            <td><?= htmlspecialchars(date("j F, Y", strtotime($user['registerDate']))) ?></td>  
-                            <td><?= htmlspecialchars($user['address']) ?></td>
-                            <td>
-
-                                 <form class="hidden rejectPopup" method="POST" action="../controllers/admin_controller.php">
-                                    <p>Do you want to Delete <?php echo htmlspecialchars($user["name"]??"this user") ?>?</p>
-
-                                    <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">
-
-                                     <input type="hidden" name="action" value="delete">
-
-                                    <div class="btn-area">
-                                        <button type="button" class="btn accept-btn" onclick="openRejectPopup(this)">No</button>
-                                        <button class="btn reject-btn" type="submit">Yes</button>
-                                    </div>
-
-                                </form>
-
-                                <button onclick="openRejectPopup(this)" class="btn reject-btn" type="button"  ><strong>Delete</strong></button>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </section>
-        </div>
-    </div>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/request.js"></script>
-
-</body>
-</html>
+<script src="/projects/xitTask/js/navbar.js"></script>
+<script src="/projects/xitTask/js/request.js"></script>

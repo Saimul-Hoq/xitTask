@@ -1,6 +1,7 @@
 RewriteEngine On
 
-# Allow direct access ONLY to genuine public assets
+
+# Allow direct access to public assets
 RewriteCond %{REQUEST_URI} /(css|js|assets|uploads)/
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]

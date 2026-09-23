@@ -9,7 +9,7 @@
     $BASE_PATH = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
 ?>
- <form class="" action="./controllers/auth_controller.php" method="post">
+ <form id="login-form" class="" action="/projects/xitTask/" method="post">
 
     <div class="stack">
         <h3 class="text-center">Login To Your Account</h3>
@@ -38,9 +38,11 @@
     
 
     <input type="hidden" name="action" value="login">
+    <input type="hidden" name="controller" value="auth">
+
 
     <div class="stack btn-container">
-        <button type="submit" id="login-btn" class="btn btn-primary text-xl">Login</button>
+        <button type="submit" id="login-btn" class="btn  btn-primary text-xl">Login</button>
         
 
         <p class="text-center text-lg">Don't have an account? <a href="/projects/xitTask/signup">signup</a> </p>
@@ -48,4 +50,4 @@
     
 
 </form>
-<script src="../js/login.js"></script>
+<script src="/projects/xitTask/js/login.js"></script>

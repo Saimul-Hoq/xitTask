@@ -1,7 +1,7 @@
-.body-content{
+/* .body-content{
     position: relative;
-}
-fieldset{
+} */
+#profile-block{
     width: 60vw;
     padding-bottom: 5rem;
 }
@@ -63,7 +63,7 @@ p,i{
     line-height: 1.6;
 }
 
-fieldset hr{
+#profile-block hr{
     margin: 2rem 0 5rem;
 }
 
@@ -75,7 +75,7 @@ fieldset hr{
     transform: scale(0.7);
     opacity: 0.5;
 }
-form{
+[id^="edit"][id$="-form"] {
     position: absolute;
     z-index: -1;
     width: 30vw;
@@ -84,7 +84,7 @@ form{
     opacity: 0;
     transition: opacity 0.5s, left 0.5s;
 }
-.openEditForm{
+[id^="edit"][id$="-form"].openEditForm {
     /* transform: translate(-50%); */
     /* align-self: center; */
     left: 50%;
@@ -98,10 +98,10 @@ form{
     justify-content: space-around;
     margin-top: 1rem;
 }
-.btn-container .btn{
+.cancel-btn, .save-btn{
     width: 40%;
 }
-#jsEditForm{
+#jsEditForm {
     display: none;
 }
 
@@ -127,14 +127,14 @@ form{
 
 
 @media screen and (max-width: 1440px){
-    fieldset{
+    #profile-block{
         width: 70vw;
         padding-bottom: 4rem;
     }
-    fieldset hr{
+    #profile-block hr{
         margin-bottom: 4rem;
     }
-    form{
+    [id^="edit"][id$="-form"] {
         width: 45vw;
     }
     
@@ -142,41 +142,41 @@ form{
 
 
 @media screen and (max-width: 1200px){
-    fieldset{
+    #profile-block{
         width: 75vw;
         padding-bottom: 3rem;
     }
-    fieldset hr{
+    #profile-block hr{
         margin-bottom: 3rem;
     }
-    form{
+    [id^="edit"][id$="-form"] {
         width: 55vw;;
     }
 }
 
 @media screen and (max-width: 991px){
-    fieldset{
+    #profile-block{
         width: 80vw;
         padding-bottom: 2rem;
     }
-     fieldset hr{
+     #profile-block hr{
         margin-bottom: 2rem;
     }
-    form{
+    [id^="edit"][id$="-form"] {
         width: 65vw;
     }
 
 }
 
 @media screen and (max-width: 768px){
-    fieldset{
+    #profile-block{
         width: 70vw;
         gap: 1rem;
         height: auto;
         overflow: auto;
         padding-bottom: 1.5rem;
     }
-    fieldset hr{
+    #profile-block hr{
         margin: 1.5rem 0; 
     }
     .middle{
@@ -214,7 +214,7 @@ form{
         width: 80%;
         border-radius: 10px;
     }
-    form{
+    [id^="edit"][id$="-form"] {
         width: 70vw;
     }
     .navbar{
@@ -223,14 +223,14 @@ form{
 }
 
 @media screen and (max-width: 540px){
-    fieldset{
+    #profile-block{
         width: 80vw;
         gap: 1rem;
         height: auto;
         overflow: auto;
         padding-bottom: 1.25rem;
     }
-    fieldset hr{
+    #profile-block hr{
         margin: 1.25rem 0;
     }
     .middle{
@@ -268,20 +268,20 @@ form{
         width: 90%;
         border-radius: 10px;
     }
-    form{
+    [id^="edit"][id$="-form"] {
         width: 80vw;
     }
 }
 
 @media screen and (max-width: 400px){
-    fieldset{
+    #profile-block{
         width: 90vw;
         gap: 1rem;
         height: auto;
         overflow: auto;
         padding-bottom: 1rem;
     }
-    fieldset hr{
+    #profile-block hr{
         margin: 1rem 0;
     }
     .middle{
@@ -319,7 +319,7 @@ form{
         width: 100%;
         border-radius: 10px;
     }
-    form{
+    [id^="edit"][id$="-form"] {
         width: 90vw;
     }
 }

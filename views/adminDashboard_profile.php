@@ -39,10 +39,10 @@
 
 </head>
 <body>
-    <?php include "../includes/navbar.php" ?>
+    
     <div class="body-content">
 
-        <form id="editPassword-form" class="edit-form" action="../controllers/user_controller.php" method="post">
+        <form id="editPassword-form" class="edit-form" action="/projects/xitTask/" method="post">
             <div class="info-field">
                 <label class="label text-xl">Current Password: </label>
             
@@ -85,14 +85,16 @@
           
 
             <input type="hidden" name="action" value="password">
+            <input type="hidden" name="controller" value="admin">
+
 
             <button id="editPassword-save-btn" type="submit" class="btn btn-primary">Save</button>
            
         </form>
 
     </div>
-   <script src="../js/passwordField.js"></script>
-   <script src="../js/navbar.js"></script>
+   <script src="/projects/xitTask/js/passwordField.js"></script>
+   <script src="/projects/xitTask/js/navbar.js"></script>
 
 </body>
 </html>
