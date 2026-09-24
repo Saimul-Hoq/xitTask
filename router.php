@@ -11,7 +11,6 @@
                 $pageId = 1;
                 $pageName = "login";
                 $page = "/views/login.php";
-                include(__DIR__."/cssLinks/loginCss.php");
             }
             else{
                 if($_SESSION["role"]===1){
@@ -29,31 +28,26 @@
             $pageId = 2;
             $pageName = "signup";
             $page = "/views/signup.php";
-            include(__DIR__."/cssLinks/signupCss.php");
             break;
         case "/projects/xitTask/user":
             $pageId = 3;
             $pageName = "User Dashboard";
             $page = "/views/dashboard.php";
-            include(__DIR__."/cssLinks/dashboardCss.php");
             break;
         case "/projects/xitTask/admin/userList":
             $pageId = 4;
             $pageName = "admin|User List";
             $page = "/views/adminDashboard_userList.php";
-            include(__DIR__."/cssLinks/adminUserListCss.php");
             break;
         case "/projects/xitTask/admin/requests":
             $pageId = 5;
             $pageName = "admin|requests";
             $page = "/views/adminDashboard_requests.php";
-            include(__DIR__."/cssLinks/adminUserListCss.php");
             break;
         case "/projects/xitTask/admin/profile":
             $pageId = 6;
             $pageName = "admin|profile";
             $page = "/views/adminDashboard_profile.php";
-            include(__DIR__."/cssLinks/adminProfileCss.php");
             break;
         case "/projects/xitTask/logout":
             include(__DIR__."/controllers/logout_controller.php");

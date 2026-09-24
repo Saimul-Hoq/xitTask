@@ -2,9 +2,9 @@
 
     session_start();
     include(__DIR__."/config/database.php");
-    include(__DIR__."/router.php");
     include(__DIR__."/controller.php");
-
+    include(__DIR__."/router.php");
+    
 ?>
 
 <!DOCTYPE html>

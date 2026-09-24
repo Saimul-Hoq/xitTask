@@ -24,7 +24,7 @@
                     <div class="options">
                         <ul>
 
-                            <a href="../views/adminDashboard_userList.php">
+                            <a href="/projects/xitTask/admin/userList">
                                 <div class="li-content">
                                     <i class="fa-solid fa-gear text-gray"></i>
                                     <p class="text-semibold">User List</p>
@@ -32,7 +32,7 @@
                                 <span>></span>
                             </a>
 
-                            <a href="../views/adminDashboard_requests.php">
+                            <a href="/projects/xitTask/admin/requests">
                                 <div class="li-content">
                                     <i class="fa-solid fa-gear text-gray"></i>
                                     <p class="text-semibold">Requests</p>
@@ -40,7 +40,7 @@
                                 <span>></span>
                             </a>
 
-                            <a href="../views/adminDashboard_profile.php">
+                            <a href="/projects/xitTask/admin/profile">
                                 <div class="li-content">
                                     <i class="fa-regular fa-circle-user text-gray"></i>
                                     <p class="text-semibold">Password</p>
@@ -48,7 +48,7 @@
                                 <span>></span>
                             </a>
 
-                            <a href="../controllers/auth_controller.php?action=logout">
+                            <a href="/projects/xitTask/logout">
                                 <div class="li-content">
                                     <i class="fa-solid fa-right-from-bracket text-gray"></i>
                                     <p class="text-semibold">Logout</p>
