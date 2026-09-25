@@ -13,60 +13,63 @@
     
 ?>
 
-<fieldset id="profile-block">
-    <div class="top">
-        <div class="top-left">
-            <h3><?php echo htmlspecialchars($user["name"]) ?></h3>
-            <p><?php 
-                if($user["role"]===1) {echo "Admin";}
-                elseif($user["role"]===2) {echo "User";}
-            ?></p>
+<section>
+    <article class="card" id="profile-block">
+        <div class="top">
+            <div class="top-left">
+                <h3><?php echo htmlspecialchars($user["name"]) ?></h3>
+                <p><?php 
+                    if($user["role"]===1) {echo "Admin";}
+                    elseif($user["role"]===2) {echo "User";}
+                ?></p>
+            </div>
+            <div class="top-right">
+                <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
+                <button onclick="openEditAvatarForm(this)" id="profile-editAvatar-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+            </div>
         </div>
-        <div class="top-right">
-            <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
-            <button onclick="openEditAvatarForm(this)" id="profile-editAvatar-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
-        </div>
-    </div>
-    <hr>
-    <div class="middle">
-        <div class="middle-left">
-                <div class="info-field">
-                <p><span class="text-bold">Name: </span> <?php echo htmlspecialchars($user["name"]??"") ?> </p>
-                <button onclick="openEditNameForm(this)" id="profile-editName-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+        <hr>
+        <div class="middle">
+            <div class="middle-left">
+                    <div class="info-field">
+                    <p><span class="text-bold">Name: </span> <?php echo htmlspecialchars($user["name"]??"") ?> </p>
+                    <button onclick="openEditNameForm(this)" id="profile-editName-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                    
+                </div>
+
                 
+
+                <div class="info-field">
+                    <p><span class="text-bold">Email: </span>  <?php echo htmlspecialchars($user["email"] ?? "") ?> </p>
+                </div>
+
+                <div class="info-field">
+                    <p><span class="text-bold">Mobile: </span>  <?php echo htmlspecialchars($user["mobile"] ?? "") ?> </p>
+                    <button onclick="openEditMobileForm(this)" id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
             </div>
+            <div class="middle-right">
+                
+                <div class="info-field">
+                    <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
+                    <button onclick="openEditAddressForm(this)" id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
 
-            
+                <div class="info-field">
+                    <p><span class="text-bold">Register Date: </span> <?php echo htmlspecialchars($user["registerDate"] ? date("j F, Y", strtotime($user["registerDate"])) : "") ?></p>
+                    <!-- <button class="btn-icon"><i class="fa-solid fa-angle-right text-xl   "></i></button> -->
+                </div>
+                
 
-            <div class="info-field">
-                <p><span class="text-bold">Email: </span>  <?php echo htmlspecialchars($user["email"] ?? "") ?> </p>
-            </div>
+                <div class="info-field" id="change-password">
+                    <button onclick="openEditPasswordForm(this)" id="profile-editPassword-btn" class="btn-icon">Password<i class="fa-solid fa-pen-to-square"></i></button>
+                </div>
 
-            <div class="info-field">
-                <p><span class="text-bold">Mobile: </span>  <?php echo htmlspecialchars($user["mobile"] ?? "") ?> </p>
-                <button onclick="openEditMobileForm(this)" id="profile-editMobile-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
             </div>
         </div>
-        <div class="middle-right">
-            
-            <div class="info-field">
-                <p><span class="text-bold">Address: </span>  <?php echo htmlspecialchars($user["address"] ?? "") ?> </p>
-                <button onclick="openEditAddressForm(this)" id="profile-editAddress-btn" class="btn-icon"><i class="fa-solid fa-pen-to-square"></i></button>
-            </div>
+    </article>
 
-            <div class="info-field">
-                <p><span class="text-bold">Register Date: </span> <?php echo htmlspecialchars($user["registerDate"] ? date("j F, Y", strtotime($user["registerDate"])) : "") ?></p>
-                <!-- <button class="btn-icon"><i class="fa-solid fa-angle-right text-xl   "></i></button> -->
-            </div>
-            
-
-            <div class="info-field" id="change-password">
-                <button onclick="openEditPasswordForm(this)" id="profile-editPassword-btn" class="btn-icon">Password<i class="fa-solid fa-pen-to-square"></i></button>
-            </div>
-
-        </div>
-    </div>
-</fieldset>
+</section>
 
 <form id="editName-form" class="edit-form" action="/projects/xitTask/" method="post">
     <label class="label text-xl">New Name: </label>

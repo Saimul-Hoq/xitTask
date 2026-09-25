@@ -188,7 +188,7 @@ p[id$="-error"]{
 }
 
 
-form, fieldset{
+form, fieldset, .card{
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
@@ -497,7 +497,7 @@ img{
     
 }
 
-fieldset hr, form hr{
+fieldset hr, form hr, .card hr{
     box-sizing: border-box;
     /* margin: 1rem 0 5rem 0; */
     border: 0;
