@@ -1,18 +1,25 @@
-/* body{
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-} */
+
 #login-form{
-    width: 30vw;
-    gap: 3rem;
-    padding: 2rem 2rem;
+    width: 29vw;
+    gap: 2.5rem;
 }
+
 #login-btn{
     /* margin-top: 1rem; */
+    background-color: oklch(0.546 0.1724 254.2);
     font-size: 1.3rem;
-    height: 3rem;
+    height: 2.7rem;
+    margin-top: 1rem;
 }
+a{
+    color: oklab(0.727598 -0.0281464 -0.0995238);
+}
+#signup{
+    color: oklab(0.7155 0 0);
+    font-weight: 400;
+}
+
+
 .stack{
     display: flex;
     flex-direction: column;
@@ -62,23 +69,30 @@
 
 @media screen and (max-width: 768px){
     #login-form{
-        width: 70vw;
+        width: 65vw;
         gap: 2rem;
     }
 }
 
 @media screen and (max-width: 540px){
     #login-form{
-        width: 80vw;
+        width: 95vw;
         gap: 1.5rem;
     }
+    #heading{
+    margin-bottom: 1rem;
+}
 }
 
 @media screen and (max-width: 400px){
     #login-form{
-        width: 90vw;
+        width: 95vw;
         gap: 1rem;
     }
+    #heading{
+    margin-bottom: 1rem;
+}
+    
 }
 .btn-container p{
     margin-top: 0.5rem;

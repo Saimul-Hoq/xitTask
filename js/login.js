@@ -3,6 +3,7 @@ const eyeClose = document.getElementById('eye-close');
 const passwordInput = document.getElementById('login-password');
 
 
+
 function eyeOpenFn(e){
     passwordInput.type = 'text';
     eyeOpen.classList.add('hidden');
