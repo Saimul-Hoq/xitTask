@@ -16,6 +16,11 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.navbar #brandLogo {
+    margin-bottom: 0;
+}
+
 .top-right{
     width: 50%;
     display: flex;
@@ -58,9 +63,9 @@
     width: auto;
     padding: 0  0.5rem;
 }
-p,i{
-    font-size: clamp(0.835rem, 0.845rem + 0.5vw, 1.5rem);
-    line-height: 1.6;
+i{
+   font-weight: 400;
+   color: rgb(153, 152, 152);
 }
 
 #profile-block hr{
@@ -217,9 +222,7 @@ p,i{
     [id^="edit"][id$="-form"] {
         width: 70vw;
     }
-    .navbar{
-        width: 90vw;
-    }
+   
 }
 
 @media screen and (max-width: 540px){
@@ -271,6 +274,9 @@ p,i{
     [id^="edit"][id$="-form"] {
         width: 80vw;
     }
+}
+.navbar-bottom{
+    justify-content: right;
 }
 
 @media screen and (max-width: 400px){

@@ -79,8 +79,9 @@ label{
 
 
 a {
-    color: color-mix(in oklab,var(--tblr-link-color) calc(var(--tblr-link-opacity,1) * 100%),transparent);
-    text-decoration: none
+    /* color: color-mix(in oklab,var(--tblr-link-color) calc(var(--tblr-link-opacity,1) * 100%),transparent); */
+    text-decoration: none;
+    color: oklch(0.9219 0 0);
 }
 p[id$="-error"]:empty {
     display: none;
@@ -117,7 +118,10 @@ p[id$="-error"]{
     font-weight: 500;
     margin-top: 3px; */
 
-    color: red;
+    position: absolute;
+    top: 105%;
+    right: 0;
+    color: rgb(201, 19, 19);
     font-size: 0.87rem;
     font-family: "Roboto", sans-serif;
     margin-top: 3px;
@@ -182,7 +186,7 @@ p[id$="-error"]{
     color:#001b4b;
 }
 .text-gray{
-    color: #353636;
+    color: #9fa0a0;
 }
 
 .body-area{
@@ -293,7 +297,12 @@ img{
     color: #9CA3AF;
 }
 
-
+.input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: oklch(0.9219 0 0) !important;
+}
 .input-md {
     height: 3rem;
     font-size: 1rem;
@@ -311,11 +320,12 @@ img{
 }
 
 .input-error {
-    border-color: #F82D2D;
+    /* border-color: #F82D2D; */
+    outline: 1px solid #F82D2D;
 }
 
 .input-success {
-    border-color: #22C55E;
+    outline-color: #22C55E;
 }
 
 
@@ -403,7 +413,8 @@ img{
 .btn-ghost {
     background-color: transparent;
     border-color: transparent;
-    color: #1F2937;
+    /* color: #1F2937; */
+    color: oklch(0.9219 0 0);
 }
 
 .btn-ghost:hover {
@@ -437,6 +448,12 @@ img{
     transform: scale(0.98);
 }
 
+nav {
+    scale: 1.15;
+}
+.navbar-container{
+    width: 100%;
+}
 .navbar {
     position: relative;
     z-index: 10;
@@ -444,27 +461,18 @@ img{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
-    padding: 1rem 1.5rem;
-    margin-top: 2rem;
+    align-self: center;
+    width: 100%;
+    /* padding: 1rem 13rem; */
+    /* padding: clamp(1rem, 2vw, 1rem) clamp(1rem, 16vw, 13rem); */
+    /* padding: 1rem clamp(1rem, -3rem + 16vw, 13rem); */
+    padding: clamp(0.5rem, 1vw + 0.25rem, 1rem) clamp(1rem, -3rem + 16vw, 13rem);
+    
+    background-color: oklch(0.2686 0 0);
+    min-height: 4rem;
 
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 16px;
-    backdrop-filter: blur(40px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-   
-    box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.20),
-    0 2px 4px rgba(0, 0, 0, 0.18),
-    0 8px 16px rgba(0, 0, 0, 0.16),
-    0 16px 32px rgba(0, 0, 0, 0.18),
-    0 32px 64px rgba(0, 0, 0, 0.20),
-    0 48px 90px rgba(0, 0, 0, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-
-    background-color: #fff5;
+    
+ 
 }
 
 .glassEffect{
@@ -506,7 +514,7 @@ img{
 .navbar-end {
     display: flex;
     align-items: center;
-    gap: 30px;    
+    gap: 10px;    
     margin-right: 1rem;
 }
 
@@ -517,18 +525,42 @@ img{
     gap: 0.5rem;
 }
 
+.navbar-user-image{
+    width: 40px;
+    height: 40px;
+}
+.navbar-user-image img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 999px;
+}
+
+.navbar-user-info p{
+    margin: 0;
+    padding: 0;
+}
+
 .hidden{
     display: none;
     
 }
 
-fieldset hr, form hr, .card hr{
+fieldset hr, form hr, .card hr, .navbar-container hr{
     box-sizing: border-box;
     /* margin: 1rem 0 5rem 0; */
     border: 0;
-    height: 2px;
+    height: 0.5px;
     width: 100%;
-    background:rgb(109, 109, 109);
+    background:rgb(88, 87, 87);
+}
+
+@media screen and (max-width: 540px){
+    nav{
+        scale: 1;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 

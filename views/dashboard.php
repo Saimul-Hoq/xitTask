@@ -1,3 +1,4 @@
+
 <?php
     if(!isset($_SESSION["id"])){
         header("Location: /projects/xitTask/");
@@ -7,6 +8,11 @@
     require_once(__DIR__."/../config/database.php");
     require_once(__DIR__."/../models/user_model.php");
     $user = getUser($conn, $_SESSION["id"]);
+    if (!$user) {
+        session_destroy();
+        header("Location: /projects/xitTask/");
+        exit();
+    }
     $errors = $_SESSION["errors"] ?? [];
     $currentEditForm = $_SESSION["editForm"] ?? "";
     unset($_SESSION["errors"], $_SESSION["editForm"]); 

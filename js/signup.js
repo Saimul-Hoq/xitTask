@@ -27,3 +27,15 @@ function eyeCloseFn(e){
     eyeClose.classList.add('hidden');
     eyeOpen.classList.remove('hidden');
 }
+
+if(document.getElementById("signup-email-error").textContent !== ""){
+    document.querySelectorAll(".input").forEach(inputField => {
+        inputField.classList.add("input-error");
+    });
+
+    document.getElementById("signup-avatar").classList.remove("input-error");
+
+}
+if(document.getElementById("signup-avatar-error").textContent !== ""){
+    document.getElementById("signup-avatar").classList.add("input-error");
+}

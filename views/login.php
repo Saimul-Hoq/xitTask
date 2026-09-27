@@ -24,7 +24,7 @@
 
         <div class="stack">
             <label class="label">Email Address: </label>
-            <input id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="your@email.com"/>
+            <input spellcheck="false" id="login-email" name="email" type="text" value="<?php echo htmlspecialchars($oldEmail) ?>" class="input" placeholder="your@email.com"/>
             <p id="login-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
         </div>
         
@@ -32,7 +32,7 @@
             <label class="label">Password: </label>
             
             <div class="input-wrapper">
-                <input id="login-password" name="password" type="password" class="input" placeholder="Your password"  />
+                <input spellcheck="false" id="login-password" name="password" type="password" class="input" placeholder="Your password"  />
                 <i onclick="eyeOpenFn(this)" id="eye-open" class="fa-regular fa-eye "></i>
                 <i onclick="eyeCloseFn(this)" id="eye-close" class="fa-regular fa-eye-slash  hidden"></i>
             </div>
