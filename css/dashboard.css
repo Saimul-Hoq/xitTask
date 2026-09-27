@@ -17,9 +17,7 @@
     justify-content: center;
 }
 
-.navbar #brandLogo {
-    margin-bottom: 0;
-}
+
 
 .top-right{
     width: 50%;
@@ -63,10 +61,7 @@
     width: auto;
     padding: 0  0.5rem;
 }
-i{
-   font-weight: 400;
-   color: rgb(153, 152, 152);
-}
+
 
 #profile-block hr{
     margin: 2rem 0 5rem;
@@ -275,9 +270,7 @@ i{
         width: 80vw;
     }
 }
-.navbar-bottom{
-    justify-content: right;
-}
+
 
 @media screen and (max-width: 400px){
     #profile-block{
