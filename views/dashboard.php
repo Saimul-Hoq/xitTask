@@ -19,6 +19,95 @@
     
 ?>
 
+<section id="profile" class="card">
+    <div class="side-panel">
+        <h4 class="side-panel-heading">BUSINESS SETTINGS</h4>
+
+        <div class="link-container">
+            <a class="btn-icon" href="">My Account</a>
+            <a class="btn-icon" href="">Edit Account</a>
+        </div>
+        
+    </div>
+    <div class="main-panel">
+        <h1>My Account</h1>
+
+        <h2 id="profile-details-heading" class="text-light">Profile Details</h2>
+        
+        <div id="profile-photo-section">
+            <div class="profile-image">
+                <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
+            </div>
+            <button id="change-avatar-btn" class="btn-icon">Change Avatar</button>
+
+            <button id="delete-avatar-btn" class="btn-icon">Delete Avatar</button>
+        </div>
+
+        <h2 id="business-profile-heading" class="text-light">Business Profile</h2>
+
+        <div id="business-info">
+            <div class="info-field">
+                <p>Business Name</p>
+                <input id="edit-name" name="name" type="text" value="<?php echo htmlspecialchars($user["name"] ?? "") ?>" class="input" placeholder="Enter new name" />
+            </div>
+
+            <div class="info-field">
+                <p>Business Id</p>
+                <input id="edit-id" name="id" type="text" value="<?php echo htmlspecialchars($user["id"] ?? "") ?>" class="input" readonly/>
+            </div>
+
+            <div class="info-field">
+                <p>Location</p>
+                <input id="edit-adress" name="address" type="text" value="<?php echo htmlspecialchars($user["address"] ?? "") ?>" class="input" placeholder="Enter new address" />
+            </div>
+        </div>
+
+        <div class="email-info-heading">
+            <h2 class="text-light">Email</h2>
+            <p class="text-md text-gray">This contact will be shown to others publicly, so choose it carefully.</p>
+        </div>
+
+        <div class="email-input">
+            <input id="edit-email" name="email" type="text" value="<?php echo htmlspecialchars($user["email"] ?? "") ?>" class="input" readonly/>
+        </div>
+
+        <div class="email-info-heading">
+            <h2 class="text-light">Password</h2>
+            <p class="text-md text-gray">You can set a permanent password if you don't want to use temporary login codes.</p>
+        </div>
+
+        <div id="business-info">
+            <div class="info-field">
+                <p>Current Password</p>
+                <input id="edit-currentPassword" name="currentPassword" type="text" class="input" placeholder="Enter current password" />
+            </div>
+
+            <div class="info-field">
+                <p>New Password</p>
+                <input id="edit-newPassword" name="newPassword" type="text"  class="input" placeholder="Enter new password"/>
+            </div>
+
+            <div class="info-field">
+                <p>Confirm Password</p>
+                <input id="edit-confirmPassword" name="confirmPassword" type="text"  class="input" placeholder="Confirm password"/>
+            </div>
+        </div>
+
+
+        <div class="email-info-heading">
+            <h2 class="text-light">Mobile Number</h2>
+            <p class="text-md text-gray">Mobile Number must not be registered before</p>
+        </div>
+
+        <div class="email-input">
+            <input id="edit-mobile" name="mobile" type="text" value="<?php echo htmlspecialchars($user["mobile"] ?? "") ?>" class="input"/>
+        </div>
+
+    </div>
+</section>
+
+<?php exit() ?>
+
 <section>
     <article class="card" id="profile-block">
         <div class="top">

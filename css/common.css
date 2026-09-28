@@ -186,7 +186,7 @@ p[id$="-error"]{
     color:#001b4b;
 }
 .text-gray{
-    color: #9fa0a0;
+    color: oklch(0.7155 0 0);
 }
 
 .body-area{

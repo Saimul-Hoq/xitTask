@@ -1,333 +1,126 @@
-/* .body-content{
+#profile{
+    width: 80vw;
+    flex-direction: row;
+    /* padding: 1rem; */
+    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1.5rem;
     position: relative;
-} */
-#profile-block{
-    width: 60vw;
-    padding-bottom: 5rem;
+
 }
-.top{
-    display: flex;
-    margin: 0 1rem 0 1rem;
+.side-panel-heading{
+    padding-left: 1.5rem;
 }
-.top-left{
-    width: 50%;
-    margin-left: 1rem;
+.side-panel{
+    width: 25%;
+    border-right: 0.5px solid rgb(82, 81, 81);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: space-between; */
+    padding-left: 0;
 }
 
-
-
-.top-right{
-    width: 50%;
-    display: flex;
-    justify-content: end;
-    margin-right: 1rem;
-}
-.top-right img{
-    width: 30%;
-    aspect-ratio: 3/3;
-    object-fit: cover;
-    border-radius: 10px;
-}
-.middle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* gap: 1rem; */
-}
-.middle-left, .middle-right{
-    width: 50%;
-    display: flex;
-    flex-direction:  column;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    gap: 2rem;
-}
-.info-field{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#change-password{
-    justify-content: end;
-}
-#change-password button{
-    display: flex;
-    gap: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    width: auto;
-    padding: 0  0.5rem;
-}
-
-
-#profile-block hr{
-    margin: 2rem 0 5rem;
-}
-
-.profile-block{
-    position:absolute;
-    transition: transform 0.5s, opacity 0.5s;
-}
-.closeProfileBlock{
-    transform: scale(0.7);
-    opacity: 0.5;
-}
-[id^="edit"][id$="-form"] {
-    position: absolute;
-    z-index: -1;
-    width: 30vw;
-    left: 100%;
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: opacity 0.5s, left 0.5s;
-}
-[id^="edit"][id$="-form"].openEditForm {
-    /* transform: translate(-50%); */
-    /* align-self: center; */
-    left: 50%;
-    transform: translateX(-50%);
-    
-    opacity: 1;
-    z-index: 2;
-}
-.btn-container{
-    display: flex;
-    justify-content: space-around;
+.link-container{
     margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
 }
-.cancel-btn, .save-btn{
-    width: 40%;
+.link-container a{
+    padding: 1.5rem 1.5rem;
+    justify-content: left;
+    border-radius: 0;
 }
-#jsEditForm {
-    display: none;
+#profile-details-heading{
+    margin-top: 2rem;
+}
+.main-panel{
+    flex: 1;
+    padding-left: 1.5rem;
+}
+#profile-photo-section{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center ;
+    margin-top: 1.5rem;
+}
+.profile-image{
+    width: 6rem;
+    height: 6rem;
+}
+.profile-image img{
+    object-fit: cover;
+    border-radius: 999px ;
+}
+#change-avatar-btn{
+    color: oklch(0.9219 0 0);
+    border: 1px solid rgb(116, 115, 115);
+    height: 3rem;
+    padding: 0 1.7rem;
+    font-size: medium;
 }
 
-.input{
+#delete-avatar-btn{
+    color: oklch(0.5829 0.1941 25.59);
+    height: 3rem;
+    padding: 0 1.7rem;
+    font-size: medium;
+    
+}
+#delete-avatar-btn:hover{
+    background-color: oklch(0.5829 0.1941 25.59);
+    color: oklch(0.9851 0 0);
+}
+
+#business-info  .info-field{
+    width: 33%;
+}
+#business-info .input{
     width: 100%;
 }
-.input-wrapper {
-    position: relative;
+
+#business-info{
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
 }
 
-.input-wrapper .input {
-    padding-right: 40px; 
+#business-profile-heading{
+    margin-top: 1rem;
 }
 
-.input-wrapper i {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #707070;
+p{
+    margin-bottom: 0.7rem;
+}
+
+.email-info-heading{
+    margin-top: 1.5rem;
+}
+
+.email-info-heading p{
+    margin-top: 0.5rem;
+}
+
+.email-input{
+    width: 32%;
+    margin-top: 1.5rem;
+}
+
+.email-input .input{
+    width: 100%;
 }
 
 
-@media screen and (max-width: 1440px){
-    #profile-block{
-        width: 70vw;
-        padding-bottom: 4rem;
-    }
-    #profile-block hr{
-        margin-bottom: 4rem;
-    }
-    [id^="edit"][id$="-form"] {
-        width: 45vw;
-    }
-    
-}
 
-#dropdown-user{
-    gap: 0.8rem;
-}
-.dropdown-open{
-    height: calc(90px + 1rem) !important;
-}
+
 @media screen and (max-width: 1200px){
-    #profile-block{
-        width: 75vw;
-        padding-bottom: 3rem;
-    }
-    #profile-block hr{
-        margin-bottom: 3rem;
-    }
-    [id^="edit"][id$="-form"] {
-        width: 55vw;;
+    #profile{
+        width: 80%;
     }
 }
 
 @media screen and (max-width: 991px){
-    #profile-block{
-        width: 80vw;
-        padding-bottom: 2rem;
-    }
-     #profile-block hr{
-        margin-bottom: 2rem;
-    }
-    [id^="edit"][id$="-form"] {
-        width: 65vw;
-    }
-
-}
-
-@media screen and (max-width: 768px){
-    #profile-block{
-        width: 70vw;
-        gap: 1rem;
-        height: auto;
-        overflow: auto;
-        padding-bottom: 1.5rem;
-    }
-    #profile-block hr{
-        margin: 1.5rem 0; 
-    }
-    .middle{
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .middle-left, .middle-right{
+    #profile{
         width: 90%;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        gap: 1.5rem;
-        /* vertical-align: middle; */
-    }
-    .top{
-        display: flex;
-        justify-content: space-between;
-        margin-left: 0;
-        margin-right: 0; 
-    }
-    .top-left{
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        margin-left: 0;
-    }
-    .top-right{
-        width: 30%;
-        display: flex;
-        justify-content: end;
-        margin-right: 0;
-    }
-    .top-right img{
-        width: 80%;
-        border-radius: 10px;
-    }
-    [id^="edit"][id$="-form"] {
-        width: 70vw;
-    }
-   
-}
-
-@media screen and (max-width: 540px){
-    #profile-block{
-        width: 80vw;
-        gap: 1rem;
-        height: auto;
-        overflow: auto;
-        padding-bottom: 1.25rem;
-    }
-    #profile-block hr{
-        margin: 1.25rem 0;
-    }
-    .middle{
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .middle-left, .middle-right{
-        width: 90%;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        gap: 1.5rem;
-        /* vertical-align: middle; */
-    }
-    .top{
-        display: flex;
-        justify-content: space-between;
-        margin-left: 0;
-        margin-right: 0; 
-    }
-    .top-left{
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        margin-left: 0;
-    }
-    .top-right{
-        width: 30%;
-        display: flex;
-        justify-content: end;
-        margin-right: 0;
-    }
-    .top-right img{
-        width: 90%;
-        border-radius: 10px;
-    }
-    [id^="edit"][id$="-form"] {
-        width: 80vw;
     }
 }
-
-
-@media screen and (max-width: 400px){
-    #profile-block{
-        width: 90vw;
-        gap: 1rem;
-        height: auto;
-        overflow: auto;
-        padding-bottom: 1rem;
-    }
-    #profile-block hr{
-        margin: 1rem 0;
-    }
-    .middle{
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .middle-left, .middle-right{
-        width: 90%;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        gap: 1.5rem;
-        /* vertical-align: middle; */
-    }
-    .top{
-        display: flex;
-        justify-content: space-between;
-        margin-left: 0;
-        margin-right: 0; 
-    }
-    .top-left{
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        margin-left: 0;
-    }
-    .top-right{
-        width: 30%;
-        display: flex;
-        justify-content: end;
-        margin-right: 0;
-    }
-    .top-right img{
-        width: 100%;
-        border-radius: 10px;
-    }
-    [id^="edit"][id$="-form"] {
-        width: 90vw;
-    }
-}
-
-
-
-
