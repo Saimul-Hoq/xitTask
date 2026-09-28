@@ -448,28 +448,18 @@ input:-webkit-autofill:active {
     transform: scale(0.98);
 }
 
-nav {
-    scale: 1.15;
-}
-.navbar-container{
-    width: 100%;
-}
-.navbar {
-    position: relative;
-    z-index: 10;
-    align-self: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    align-self: center;
-    width: 100%;
-    /* padding: 1rem 13rem; */
-    /* padding: clamp(1rem, 2vw, 1rem) clamp(1rem, 16vw, 13rem); */
-    /* padding: 1rem clamp(1rem, -3rem + 16vw, 13rem); */
-    padding: 0 clamp(0.5rem, -3.5rem + 13vw, 13rem);
+.hidden{
+    display: none;
     
-    background-color: oklch(0.2686 0 0);
-    min-height: 3.7rem;
+}
+
+fieldset hr, form hr, .card hr, .navbar-container hr{
+    box-sizing: border-box;
+    /* margin: 1rem 0 5rem 0; */
+    border: 0;
+    height: 0.5px;
+    width: 100%;
+    background:rgb(88, 87, 87);
 }
 
 .glassEffect{
@@ -490,99 +480,6 @@ nav {
     inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 
     background-color: #fff5;
-}
-
-.navbar-start {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 30px;
-    margin-left: 0.5rem;
-}
-
-
-.navbar-center {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    gap: 30px;
-}
-
-.navbar-end {
-    display: flex;
-    align-items: center;
-    gap: 10px;    
-    margin-right: 1rem;
-}
-
-.navbar a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-weight: 300;
-}
-
-.navbar i{
-   font-size: larger;
-   color: rgb(153, 152, 152);
-}
-.navbar-user-image{
-    width: clamp(2rem, 1.8571rem + 0.7143vw, 2.5rem);
-    height: clamp(2rem, 1.8571rem + 0.7143vw, 2.5rem);
-}
-.navbar-user-image img{
-    width: 100%;
-    object-fit: cover;
-    border-radius: 999px;
-}
-
-.navbar-user-info p{
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-top{
-    border-bottom: 0.5px solid rgb(82, 81, 81);
-}
-
-.navbar #brandLogo {
-    margin-bottom: 0;
-}
-
-.navbar-bottom{
-    justify-content: space-between;
-}
-
-
-
-.hidden{
-    display: none;
-    
-}
-
-fieldset hr, form hr, .card hr, .navbar-container hr{
-    box-sizing: border-box;
-    /* margin: 1rem 0 5rem 0; */
-    border: 0;
-    height: 0.5px;
-    width: 100%;
-    background:rgb(88, 87, 87);
-}
-
-@media screen and (max-width: 850px){
-    nav{
-        scale: 1;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .navbar-user-info{
-        display: none;
-    }
-    .navbar-bottom{
-        display: none;
-    }
 }
 
 

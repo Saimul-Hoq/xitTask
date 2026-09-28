@@ -140,7 +140,12 @@
     
 }
 
-
+#dropdown-user{
+    gap: 0.8rem;
+}
+.dropdown-open{
+    height: calc(90px + 1rem) !important;
+}
 @media screen and (max-width: 1200px){
     #profile-block{
         width: 75vw;

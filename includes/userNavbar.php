@@ -12,18 +12,16 @@
         header("Location: /projects/xitTask/");
         exit();
     }
-    $errors = $_SESSION["errors"] ?? [];
-    $currentEditForm = $_SESSION["editForm"] ?? "";
-    unset($_SESSION["errors"], $_SESSION["editForm"]); 
     
 ?>
 
 
 <section class="navbar-container">
-    <div class="navbar navbar-top">
+    <section class="navbar navbar-top">
         <div class="navbar-start">
 
-            <i class="fa-solid fa-bars btn-icon"></i>
+            <i onclick="openDropdown(this)" id="open-menu" class="fa-solid fa-bars btn-icon"></i>
+            <i onclick="closeDropdown()" id="close-menu" class="fa-solid fa-x btn-icon"></i>
 
             <nav id="brandLogo"><svg xmlns="http://www.w3.org/2000/svg" width="110" height="32" viewBox="0 0 232 68" class="navbar-brand-image">
                 <path d="M64.6 16.2C63 9.9 58.1 5 51.8 3.4 40 1.5 28 1.5 16.2 3.4 9.9 5 5 9.9 3.4 16.2 1.5 28 1.5 40 3.4 51.8 5 58.1 9.9 63 16.2 64.6c11.8 1.9 23.8 1.9 35.6 0C58.1 63 63 58.1 64.6 51.8c1.9-11.8 1.9-23.8 0-35.6zM33.3 36.3c-2.8 4.4-6.6 8.2-11.1 11-1.5.9-3.3.9-4.8.1s-2.4-2.3-2.5-4c0-1.7.9-3.3 2.4-4.1 2.3-1.4 4.4-3.2 6.1-5.3-1.8-2.1-3.8-3.8-6.1-5.3-2.3-1.3-3-4.2-1.7-6.4s4.3-2.9 6.5-1.6c4.5 2.8 8.2 6.5 11.1 10.9 1 1.4 1 3.3.1 4.7zM49.2 46H37.8c-2.1 0-3.8-1-3.8-3s1.7-3 3.8-3h11.4c2.1 0 3.8 1 3.8 3s-1.7 3-3.8 3z" fill="#066fd1" style="fill: var(--tblr-navbar-logo-color, var(--tblr-primary, #066fd1))"></path>
@@ -43,15 +41,44 @@
            </div>
 
         </div>
-    </div>
-    <div class="navbar navbar-bottom">
+    </section>
+
+
+     <section id="navbar-user" class="navbar navbar-bottom">
          <div class="navbar-start">
-            <a class="btn-icon" href="/projects/xitTask/admin/userList"><i class="fa-solid fa-users"></i> User List</a>
-            <a class="btn-icon" href="/projects/xitTask/admin/requests"><i class="fa-regular fa-bell"></i>Requests</a>
-            <a class="btn-icon" href="/projects/xitTask/admin/profile"><i class="fa-solid fa-unlock-keyhole"></i>Password</a>
+            <a class="btn-icon" href=""><i class="fa-regular fa-pen-to-square"></i>Edit</a>
         </div>
         <div class="navbar-end">
             <a class="btn-icon" href="/projects/xitTask/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout </a>
         </div>
-    </div>
+    </section>
+
+
+
+     <section id="dropdown-user"  class="navbar navbar-dropdown">
+         <div class="navbar-start">
+            <a class="btn-icon" href="/projects/xitTask/admin/userList">
+                <div class="logo-text">
+                    <i class="fa-regular fa-pen-to-square"></i> Edit
+                </div>
+                <div class="right-angle">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+                
+            </a>
+
+        </div>
+        <div class="navbar-end">
+            <a class="btn-icon" href="/projects/xitTask/logout">
+                <div class="logo-text">
+                    <i class="fa-solid fa-right-from-bracket"></i>Logout
+                </div>
+                <div class="right-angle">
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
 </section>
+
+<script src="/projects/xitTask/js/navbar.js"></script>
