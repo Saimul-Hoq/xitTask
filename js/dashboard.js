@@ -15,6 +15,7 @@ function openEditAvatar(e){
         editAvatarInput.setAttribute("disabled", "");
         openAvatar.textContent = "false";
         document.getElementById("edit-avatar-error").textContent = "";
+        editAvatarInput.classList.remove("input-error");
     }
 }
 
@@ -32,6 +33,7 @@ function addDisabled(){
     document.querySelectorAll("#edit-password-fields .input").forEach((input) => {
         input.setAttribute("disabled", "");
         input.value = "";
+        input.classList.remove("input-error");
     })
 }
 function removeErrorMessage(){

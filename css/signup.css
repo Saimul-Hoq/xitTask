@@ -30,6 +30,9 @@
 .signup-btn{
     width: 100%;
 }
+#signup-section{
+    margin-top: 1rem;
+}
 
 #successPopup{
     position: absolute;
