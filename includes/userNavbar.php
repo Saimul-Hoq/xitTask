@@ -45,9 +45,9 @@
 
 
      <section id="navbar-user" class="navbar navbar-bottom">
-         <div class="navbar-start">
-            <a class="btn-icon" href=""><i class="fa-regular fa-pen-to-square"></i>Edit</a>
-        </div>
+         <!-- <div class="navbar-start">
+            <button onclick="editAccountFunc(this)" class="btn-icon text-gray text-md"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
+        </div> -->
         <div class="navbar-end">
             <a class="btn-icon" href="/projects/xitTask/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout </a>
         </div>
@@ -56,7 +56,7 @@
 
 
      <section id="dropdown-user"  class="navbar navbar-dropdown">
-         <div class="navbar-start">
+         <!-- <div class="navbar-start">
             <a class="btn-icon" href="/projects/xitTask/admin/userList">
                 <div class="logo-text">
                     <i class="fa-regular fa-pen-to-square"></i> Edit
@@ -67,7 +67,7 @@
                 
             </a>
 
-        </div>
+        </div> -->
         <div class="navbar-end">
             <a class="btn-icon" href="/projects/xitTask/logout">
                 <div class="logo-text">
@@ -82,3 +82,4 @@
 </section>
 
 <script src="/projects/xitTask/js/navbar.js"></script>
+<!-- <script src="/projects/xitTask/js/dashboard.js"></script> -->

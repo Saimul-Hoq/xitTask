@@ -1,4 +1,3 @@
-
 nav {
     scale: 1.15;
 }
@@ -83,7 +82,7 @@ nav {
 }
 
 .navbar-bottom{
-    justify-content: space-between;
+    justify-content:end;
 }
 
 .navbar #open-menu,
@@ -130,6 +129,12 @@ nav {
 .navbar-dropdown a{
     width: 100%;
     justify-content:space-between;
+}
+
+.navbar-start button{
+    display: flex;
+    gap: 0.5rem;
+  
 }
 
 .show{

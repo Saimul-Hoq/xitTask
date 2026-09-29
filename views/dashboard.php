@@ -24,87 +24,113 @@
         <h4 class="side-panel-heading">BUSINESS SETTINGS</h4>
 
         <div class="link-container">
-            <a class="btn-icon" href="">My Account</a>
-            <a class="btn-icon" href="">Edit Account</a>
+            <button onclick="myAccountFunc(this)" id="my-account" class="btn-icon bg-optionSelected" >My Account</button>
+            <button onclick="editAccountFunc(this)" id="edit-account" class="btn-icon">Edit Account</button>
         </div>
         
     </div>
     <div class="main-panel">
-        <h1>My Account</h1>
+        <div id="main-upper">
+            <h1 id="sidepanel-heading">My Account</h1>
 
-        <h2 id="profile-details-heading" class="text-light">Profile Details</h2>
+            <h2 id="profile-details-heading" class="text-light">Profile Details</h2>
+            
+            <div id="profile-photo-section">
+                <div class="profile-image">
+                    <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
+                </div>
+                <div class="change-avatar-part">
+                    <button onclick="openEditAvatar(this); editAccountFunc(this)" id="edit-avatar-btn" class="btn-icon">Change Avatar</button>
+                    
+                    <input readonly name="avatar" id="edit-avatar" type="file" accept="image/*" class="input hidden" placeholder="Enter your profile photo" />
+
+                    <p id="edit-avatar-error"><?php echo htmlspecialchars($errors["avatar"] ?? "") ?></p>
+                </div>
+                
+
+                <button id="delete-avatar-btn" class="btn-icon">Delete Avatar</button>
+            </div>
+
+            <h2 id="business-profile-heading" class="text-light">Business Profile</h2>
+
+            <div id="business-info">
+                <div class="info-field">
+                    <p>Business Name</p>
+                    <input readonly id="edit-name" name="name" type="text" value="<?php echo htmlspecialchars($user["name"] ?? "") ?>" class="input" placeholder="Enter new name" />
+                </div>
+
+                <div class="info-field">
+                    <p>Business Id</p>
+                    <input readonly id="edit-id" name="id" type="text" value="<?php echo htmlspecialchars($user["id"] ?? "") ?>" class="input"/>
+                </div>
+
+                <div class="info-field">
+                    <p>Location</p>
+                    <input readonly id="edit-adress" name="address" type="text" value="<?php echo htmlspecialchars($user["address"] ?? "") ?>" class="input" placeholder="Enter new address" />
+                </div>
+            </div>
+
+            <div class="email-info-heading">
+                <h2 class="text-light">Email</h2>
+                <p class="text-md text-gray">This contact will be shown to others publicly, so choose it carefully.</p>
+            </div>
+
+            <div class="email-input">
+                <input readonly id="edit-email" name="email" type="text" value="<?php echo htmlspecialchars($user["email"] ?? "") ?>" class="input"/>
+            </div>
+
+            <div class="email-info-heading">
+                <h2 class="text-light">Password</h2>
+                <p class="text-md text-gray">You can set a permanent password if you don't want to use temporary login codes.</p>
+            </div>
+
+
+            <div id="password-info">
+                <button onclick="openEditPassword(this); editAccountFunc(this)"  id="edit-password-btn" class="btn-icon">Set new password</button>
+
+                <div id="edit-password-fields" class="hidden">
+                    <div class="info-field">
+                        <p>Current Password</p>
+                        <input readonly id="edit-currentPassword" name="currentPassword" type="text" class="input" placeholder="Enter current password" />
+                    </div>
+
+                    <div class="info-field">
+                        <p>New Password</p>
+                        <input readonly id="edit-newPassword" name="newPassword" type="text"  class="input" placeholder="Enter new password"/>
+                    </div>
+
+                    <div class="info-field">
+                        <p>Confirm Password</p>
+                        <input readonly id="edit-confirmPassword" name="confirmPassword" type="text"  class="input" placeholder="Confirm password"/>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="email-info-heading">
+                <h2 class="text-light">Mobile Number</h2>
+                <p class="text-md text-gray">Mobile Number must not be registered before</p>
+            </div>
+
+            <div id="edit-mobile-part" class="email-input">
+                <input readonly id="edit-mobile" name="mobile" type="text" value="<?php echo htmlspecialchars($user["mobile"] ?? "") ?>" class="input"/>
+            </div>
+        </div>
         
-        <div id="profile-photo-section">
-            <div class="profile-image">
-                <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
+
+        <section id="submit-part" class="hidden">
+            <div class="btn-container">
+                <button type="button" id="submit-cancel-btn" class="btn-icon">Cancel</button>
+                <button type="submit" id="submit-btn" class="btn-icon">Submit</button>
             </div>
-            <button id="change-avatar-btn" class="btn-icon">Change Avatar</button>
-
-            <button id="delete-avatar-btn" class="btn-icon">Delete Avatar</button>
-        </div>
-
-        <h2 id="business-profile-heading" class="text-light">Business Profile</h2>
-
-        <div id="business-info">
-            <div class="info-field">
-                <p>Business Name</p>
-                <input id="edit-name" name="name" type="text" value="<?php echo htmlspecialchars($user["name"] ?? "") ?>" class="input" placeholder="Enter new name" />
-            </div>
-
-            <div class="info-field">
-                <p>Business Id</p>
-                <input id="edit-id" name="id" type="text" value="<?php echo htmlspecialchars($user["id"] ?? "") ?>" class="input" readonly/>
-            </div>
-
-            <div class="info-field">
-                <p>Location</p>
-                <input id="edit-adress" name="address" type="text" value="<?php echo htmlspecialchars($user["address"] ?? "") ?>" class="input" placeholder="Enter new address" />
-            </div>
-        </div>
-
-        <div class="email-info-heading">
-            <h2 class="text-light">Email</h2>
-            <p class="text-md text-gray">This contact will be shown to others publicly, so choose it carefully.</p>
-        </div>
-
-        <div class="email-input">
-            <input id="edit-email" name="email" type="text" value="<?php echo htmlspecialchars($user["email"] ?? "") ?>" class="input" readonly/>
-        </div>
-
-        <div class="email-info-heading">
-            <h2 class="text-light">Password</h2>
-            <p class="text-md text-gray">You can set a permanent password if you don't want to use temporary login codes.</p>
-        </div>
-
-        <div id="business-info">
-            <div class="info-field">
-                <p>Current Password</p>
-                <input id="edit-currentPassword" name="currentPassword" type="text" class="input" placeholder="Enter current password" />
-            </div>
-
-            <div class="info-field">
-                <p>New Password</p>
-                <input id="edit-newPassword" name="newPassword" type="text"  class="input" placeholder="Enter new password"/>
-            </div>
-
-            <div class="info-field">
-                <p>Confirm Password</p>
-                <input id="edit-confirmPassword" name="confirmPassword" type="text"  class="input" placeholder="Confirm password"/>
-            </div>
-        </div>
-
-
-        <div class="email-info-heading">
-            <h2 class="text-light">Mobile Number</h2>
-            <p class="text-md text-gray">Mobile Number must not be registered before</p>
-        </div>
-
-        <div class="email-input">
-            <input id="edit-mobile" name="mobile" type="text" value="<?php echo htmlspecialchars($user["mobile"] ?? "") ?>" class="input"/>
-        </div>
+        </section>
 
     </div>
 </section>
+
+<p id="jsEditForm"><?php echo $currentEditForm ?></p>
+<script src="/projects/xitTask/js/dashboard.js"></script>
+<script src="/projects/xitTask/js/passwordField.js"></script>
 
 <?php exit() ?>
 
@@ -282,6 +308,3 @@
     </div>
 </form> 
 
-<p id="jsEditForm"><?php echo $currentEditForm ?></p>
-<script src="/projects/xitTask/js/dashboard.js"></script>
-<script src="/projects/xitTask/js/passwordField.js"></script>

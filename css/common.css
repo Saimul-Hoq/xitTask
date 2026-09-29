@@ -328,6 +328,10 @@ input:-webkit-autofill:active {
     outline-color: #22C55E;
 }
 
+.input[readonly]:focus{
+    outline: none;
+}
+
 
 .btn {
     display: inline-flex;
@@ -449,8 +453,10 @@ input:-webkit-autofill:active {
 }
 
 .hidden{
-    display: none;
-    
+    display: none !important; 
+}
+.show{
+    display: block !important;
 }
 
 fieldset hr, form hr, .card hr, .navbar-container hr{

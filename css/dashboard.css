@@ -3,14 +3,19 @@
     flex-direction: row;
     /* padding: 1rem; */
     padding: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-right: 1.5rem;
+    /* padding-top: 1rem; */
+    /* padding-bottom: 1rem; */
+    /* padding-right: 1.5rem; */
+    margin-top: 3rem;
     position: relative;
 
 }
 .side-panel-heading{
     padding-left: 1.5rem;
+    padding-top: 1rem;
+}
+#sidepanel-heading{
+    padding-top: 1rem;
 }
 .side-panel{
     width: 25%;
@@ -26,17 +31,23 @@
     display: flex;
     flex-direction: column;
 }
-.link-container a{
+.link-container button{
     padding: 1.5rem 1.5rem;
     justify-content: left;
     border-radius: 0;
+    color: oklch(0.9219 0 0);
+    font-size: medium;
 }
 #profile-details-heading{
     margin-top: 2rem;
 }
 .main-panel{
     flex: 1;
+    /* padding-left: 1.5rem; */
+}
+#main-upper{
     padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 #profile-photo-section{
     display: flex;
@@ -52,13 +63,28 @@
     object-fit: cover;
     border-radius: 999px ;
 }
-#change-avatar-btn{
+#edit-avatar-btn,
+#edit-password-btn,
+#submit-cancel-btn,
+#submit-btn{
     color: oklch(0.9219 0 0);
     border: 1px solid rgb(116, 115, 115);
     height: 3rem;
-    padding: 0 1.7rem;
+    padding: 0 1.5rem;
     font-size: medium;
+    font-weight: 500;
 }
+#submit-btn{
+    background-color: oklch(0.546 0.1724 254.2);
+    border: none;
+}
+.change-avatar-part{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 11rem;
+}
+
 
 #delete-avatar-btn{
     color: oklch(0.5829 0.1941 25.59);
@@ -72,7 +98,7 @@
     color: oklch(0.9851 0 0);
 }
 
-#business-info  .info-field{
+.info-field{
     width: 33%;
 }
 #business-info .input{
@@ -108,6 +134,48 @@ p{
 
 .email-input .input{
     width: 100%;
+}
+
+#password-info{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+}
+#edit-password-btn{
+    width: 12rem;
+}
+#edit-password-fields{
+    display: flex;
+    gap: 1.5rem;
+}
+#edit-password-fields .input{
+    width: 100%;
+}
+.bg-optionSelected{
+    /* background-color: #066fd1; */
+    background-color: oklab(0.546 -0.046941 -0.165886 / 0.12);
+}
+#submit-part{
+    border-top: 1px solid rgb(82, 81, 81);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: flex;
+    justify-content: end;
+    padding-right: 1.5rem;
+}
+#edit-mobile-part{
+    margin-bottom: 1.5rem;
+}
+#submit-part .btn-container{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dropdown-open{
+    height: 50px !important;
+
 }
 
 
