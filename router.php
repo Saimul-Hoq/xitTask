@@ -49,6 +49,11 @@
             $pageName = "admin|profile";
             $page = "/views/adminDashboard_profile.php";
             break;
+        case "/projects/xitTask/user/editProfile":
+            $pageId = 7;
+            $pageName = "user|Edit Profile";
+            $page = "/views/editProfile.php";
+            break;
         case "/projects/xitTask/logout":
             include(__DIR__."/controllers/logout_controller.php");
             exit;

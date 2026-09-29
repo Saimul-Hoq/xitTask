@@ -12,7 +12,7 @@
 ?>
 
 
-<section class="navbar-container">
+<section id="admin-navbar" class="navbar-container">
     <section class="navbar navbar-top">
         <div class="navbar-start">
 
@@ -39,7 +39,7 @@
         </div>
     </section>
 
-    <section id="navbar-admin" class="navbar navbar-bottom">
+    <section id="navbar-admin admin-navbar-bottom" class="navbar navbar-bottom">
          <div class="navbar-start">
             <a class="btn-icon" href="/projects/xitTask/admin/userList"><i class="fa-solid fa-users"></i> User List</a>
             <a class="btn-icon" href="/projects/xitTask/admin/requests"><i class="fa-regular fa-bell"></i>Requests</a>

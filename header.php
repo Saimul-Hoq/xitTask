@@ -2,7 +2,7 @@
     if(isset($_SESSION["pageId"])){
         $pageId = $_SESSION["pageId"];
         switch($pageId){
-            case 3:
+            case 3: case 7:
                 include(__DIR__."/includes/userNavbar.php");
                 break;
             case 4: case 5: case 6:

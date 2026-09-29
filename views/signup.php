@@ -8,6 +8,10 @@
     $showSuccess = isset($_SESSION['status']) && $_SESSION['status'] === 'success';
 
     unset($_SESSION["errors"], $_SESSION["oldEmail"], $_SESSION["oldName"], $_SESSION["oldMobile"], $_SESSION["oldAddress"]);
+
+    function errClass(array $errors, string $field): string {
+        return isset($errors[$field]) ? ' input-error' : '';
+    }
 ?>
 
 
@@ -25,7 +29,7 @@
                 <div class="signup-field">
                     <label class="label">Name: </label> <br>
                     
-                    <input spellcheck="false" name="name" id="signup-name" type="text" class="input signup-input" placeholder="Enter name" value="<?php echo htmlspecialchars($oldName) ?>"/>
+                    <input spellcheck="false" name="name" id="signup-name" type="text" class="input<?= errClass($errors, 'name') ?> signup-input" placeholder="Enter name" value="<?php echo htmlspecialchars($oldName) ?>"/>
 
                     <p id="signup-name-error"><?php echo htmlspecialchars($errors["name"] ?? "") ?></p>
                 </div>
@@ -33,7 +37,7 @@
                 <div class="signup-field">
                     <label class="label">Email address: </label> <br>
                     
-                    <input spellcheck="false" name="email" id="signup-email" type="text" class="input signup-input" placeholder="Enter email" value="<?php echo htmlspecialchars($oldEmail) ?>"/>
+                    <input spellcheck="false" name="email" id="signup-email" type="text" class="input<?= errClass($errors, 'email') ?> signup-input" placeholder="Enter email" value="<?php echo htmlspecialchars($oldEmail) ?>"/>
 
                     <p id="signup-email-error"><?php echo htmlspecialchars($errors["email"] ?? "") ?></p>
                 </div>
@@ -44,7 +48,7 @@
                    
 
                     <div class="input-wrapper">
-                        <input spellcheck="false" id="signup-password" name="password" type="password" class="input signup-input" placeholder="Password"  />
+                        <input spellcheck="false" id="signup-password" name="password" type="password" class="input<?= errClass($errors, 'password') ?> signup-input" placeholder="Password"  />
                         <i onclick="eyeOpenFn(this)" id="eye-open" class="fa-regular fa-eye "></i>
                         <i onclick="eyeCloseFn(this)" id="eye-close" class="fa-regular fa-eye-slash  hidden"></i>
                     </div>
@@ -57,7 +61,7 @@
                 <div class="signup-field">
                     <label class="label">Phone Number: </label> <br>
                     
-                    <input spellcheck="false" name="mobile" id="signup-mobile" type="text" class="input signup-input" placeholder="01XXXXXXXXX" value="<?php echo htmlspecialchars($oldMobile) ?>"/>
+                    <input spellcheck="false" name="mobile" id="signup-mobile" type="text" class="input<?= errClass($errors, 'mobile') ?> signup-input" placeholder="01XXXXXXXXX" value="<?php echo htmlspecialchars($oldMobile) ?>"/>
 
                     <p id="signup-mobile-error"><?php echo htmlspecialchars($errors["mobile"] ?? "") ?></p>
                 </div>
@@ -65,7 +69,7 @@
                 <div class="signup-field">
                     <label class="label">Avatar: </label> <br>
                     
-                    <input spellcheck="false" spellcheck="false" name="avatar" id="signup-avatar" type="file" accept="image/*" class="input signup-input" placeholder="Enter your profile photo (optional)" />
+                    <input spellcheck="false" spellcheck="false" name="avatar" id="signup-avatar" type="file" accept="image/*" class="input<?= errClass($errors, 'avatar') ?> signup-input" placeholder="Enter your profile photo (optional)" />
 
                     <p id="signup-avatar-error"><?php echo htmlspecialchars($errors["avatar"] ?? "") ?></p>
                 </div>
@@ -73,7 +77,7 @@
                 <div class="signup-field">
                     <label class="label">Address: </label> <br>
                     
-                    <input spellcheck="false" name="address" id="signup-address" type="text" class="input signup-input" placeholder="Enter address" value="<?php echo htmlspecialchars($oldAddress) ?>"/>
+                    <input spellcheck="false" name="address" id="signup-address" type="text" class="input<?= errClass($errors, 'address') ?> signup-input" placeholder="Enter address" value="<?php echo htmlspecialchars($oldAddress) ?>"/>
 
                     <p id="signup-address-error"><?php echo htmlspecialchars($errors["address"] ?? "") ?></p>
                 </div>
@@ -93,11 +97,11 @@
 
 
 
-<fieldset id="successPopup">
+<div class="card" id="successPopup">
     <p>Your account is waiting for admin's approval. Before login please wait until admin approves.</p>
     <h4 id="status" class="hidden"><?php echo $showSuccess?"true":"false" ?></h4>
     <a href="/projects/xitTask/" class="btn-icon">Ok</a>
-</fieldset>
+</div>
 
 
 <script src="/projects/xitTask/js/signup.js"></script>

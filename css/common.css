@@ -84,7 +84,7 @@ a {
     color: oklch(0.9219 0 0);
 }
 p[id$="-error"]:empty {
-    display: none;
+    display: none !important;
 }
 
 
@@ -118,10 +118,11 @@ p[id$="-error"]{
     font-weight: 500;
     margin-top: 3px; */
 
+    z-index: 5;
     position: absolute;
     top: 105%;
     right: 0;
-    color: rgb(201, 19, 19);
+    color: oklch(0.5829 0.1941 25.59);
     font-size: 0.87rem;
     font-family: "Roboto", sans-serif;
     margin-top: 3px;
@@ -269,7 +270,7 @@ img{
     /* border: 1px solid #c8e5ee; */
     border-radius: 6px;
     /* height: 2.8rem; */
-    height: clamp(2.3rem, 2.0625rem + 0.5357vw, 2.8rem);
+    height: clamp(2.6rem, 2.0625rem + 0.5357vw, 2.8rem);
     padding-left: 0.75rem;
     padding-right: 0.75rem;
     font-size: 1rem;
@@ -277,6 +278,7 @@ img{
     color: oklch(0.9219 0 0);
     box-shadow: oklch(0.2046 0 0) 0px 0px 0px 1000px inset;
     transition: box-shadow 0.2s, border-color 0.2s;
+    width: 100%;
 }
 
 .input:focus,
@@ -319,10 +321,15 @@ input:-webkit-autofill:active {
     border-radius: 0.625rem;
 }
 
-.input-error {
-    /* border-color: #F82D2D; */
-    outline: 1px solid #F82D2D;
+.info-field{
+    position: relative;
 }
+
+.input.input-error{
+    /* border-color: #dc3545; */
+    outline: 1px solid #dc3545;
+}
+
 
 .input-success {
     outline-color: #22C55E;
@@ -330,6 +337,23 @@ input:-webkit-autofill:active {
 
 .input[readonly]:focus{
     outline: none;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper .input {
+    padding-right: 40px; 
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #707070;
 }
 
 
@@ -438,6 +462,7 @@ input:-webkit-autofill:active {
     /* color: #1F2937; */
     cursor: pointer;
     text-decoration: none;
+    white-space: nowrap;
     transition: background-color 0.2s, border-radius 0.2s;
 }
 

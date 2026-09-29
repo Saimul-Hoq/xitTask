@@ -28,22 +28,7 @@ a{
 .input{
     width: 100%;
 }
-.input-wrapper {
-    position: relative;
-}
 
-.input-wrapper .input {
-    padding-right: 40px; 
-}
-
-.input-wrapper i {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #707070;
-}
 
 
 @media screen and (max-width: 1440px){

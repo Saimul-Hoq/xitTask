@@ -27,7 +27,7 @@
       case 2:
         include(__DIR__."/../cssLinks/signupCss.php");
         break;
-      case 3:
+      case 3: case 7:
         include(__DIR__."/../cssLinks/dashboardCss.php");
         break;
       case 4: case 5:

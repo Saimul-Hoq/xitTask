@@ -44,10 +44,10 @@
     </section>
 
 
-     <section id="navbar-user" class="navbar navbar-bottom">
+     <section id="navbar-user navbar-user-bottom" class="navbar navbar-bottom">
          <!-- <div class="navbar-start">
             <button onclick="editAccountFunc(this)" class="btn-icon text-gray text-md"><i class="fa-regular fa-pen-to-square"></i>Edit</button>
-        </div> -->
+        </div> --> 
         <div class="navbar-end">
             <a class="btn-icon" href="/projects/xitTask/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout </a>
         </div>

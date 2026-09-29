@@ -8,23 +8,50 @@ if (!isset($_SESSION["id"])){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     require_once(__DIR__."/../models/user_model.php");
+    $id = $_SESSION["id"];
 
-    if(($_POST["action"]??"") === "password"){
+    if($_POST["action"]??"" == "deleteAvatar"){
 
+        $dir = __DIR__ . "/../uploads/avatars/";
+
+       
+        foreach (glob($dir . "user_" . $id . ".*") as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
+
+        updateUserAvatar($conn, $id, "default.png");
+        header("Location: /projects/xitTask/user/editProfile");
+        exit();
+    }
+
+    
+    $name = trim($_POST["name"] ?? "");
+    $address = trim($_POST["address"] ?? "");
+    $mobile = trim($_POST["mobile"] ?? "");
+    $currentPassword = null;
+    $newPassword = null;
+    $confirmPassword = null;
+    $_SESSION["openPassword"] = "false";
+    $_SESSION["openAvatar"] = "false";
+
+    if(isset($_POST["currentPassword"])){
         $currentPassword = trim($_POST["currentPassword"] ?? "");
         $newPassword = trim($_POST["newPassword"] ?? "");
         $confirmPassword = trim($_POST["confirmPassword"] ?? "");
+        $_SESSION["openPassword"] = "true";
+    }
 
-        $errors = [];
-        $user = getUser($conn, $_SESSION["id"]);
-        $location = "";
-        if($user["role"]===1){
-            $location = "Location: /projects/xitTask/admin/profile";
-        }
-        else{
-            $location = "Location: /projects/xitTask/user";
-        }
 
+    $avatarTmpPath = $_FILES["avatar"]["tmp_name"] ?? "";
+    $avatarUploadError = $_FILES["avatar"]["error"] ?? UPLOAD_ERR_NO_FILE;
+    $avatarProvided = $avatarUploadError !== UPLOAD_ERR_NO_FILE;
+    $newAvatarFilename = "";
+    
+    
+    //Password Check
+    if(isset($_POST["currentPassword"])){
         if ($currentPassword === "") {
             $errors["currentPassword"] = "Current password is required.";
         }
@@ -48,125 +75,60 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $errors["currentPassword"] = "Current password is incorrect.";
             }
         }
-
-        if (!empty($errors)) {
-            $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "password";
-            header($location);
-            exit();
-        }
-
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-        editUserPassword($conn, $_SESSION["id"], $hashedPassword);
-
-        session_regenerate_id(true);
-        header($location);
-
-        exit();
     }
-    elseif(($_POST["action"]??"") === "name"){
 
-        $name = trim($_POST["name"] ?? "");
-        $errors = [];
-
-        if ($name === "") {
-            $errors["name"] = "Name is required.";
-        } 
-        elseif (strlen($name) > 20) {
-            $errors["name"] = "Name must be under 20 characters.";
-        }
-        elseif(strlen($name)<2){
-            $errors["name"] = "Name must be more than 1 characters.";
-        }
-
-        if (!empty($errors)) {
-            $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "name";
-            header("Location: /projects/xitTask/user");
-            exit();
-        }
-
-        updateUserName($conn, $_SESSION["id"], $name);
-
-        header("Location: /projects/xitTask/user");
-        exit();
+    //Name check
+    if ($name === "") {
+        $errors["name"] = "Name is required.";
+    } 
+    elseif (strlen($name) > 20) {
+        $errors["name"] = "Name must be under 20 characters.";
     }
-    elseif(($_POST["action"]?? "") === "mobile"){
+    elseif(strlen($name)<2){
+        $errors["name"] = "Name must be more than 1 characters.";
+    }
 
-        $mobile = trim($_POST["mobile"] ?? "");
-        $errors = [];
-
-        if ($mobile === "") {
-            $errors["mobile"] = "Mobile number is required.";
-        } elseif (!preg_match('/^01[0-9]{9}$/', $mobile)) {
-            $errors["mobile"] = "Invalid Mobile Number";
-        }
-
-        if (!empty($errors)) {
-            $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "mobile";
-            header("Location: /projects/xitTask/user");
-            exit();
-        }
-
+    //Mobile Check
+    if ($mobile === "") {
+        $errors["mobile"] = "Mobile number is required.";
+    } elseif (!preg_match('/^01[0-9]{9}$/', $mobile)) {
+        $errors["mobile"] = "Invalid Mobile Number";
+    }
+    if(!isset($errors["mobile"])){
         $currentMobile = getUserMobile($conn, $_SESSION["id"]);
 
-        if ($mobile === $currentMobile) {
-            header("Location: /projects/xitTask/user");
-            exit();
-        }
-
-        if (isMobileExists($conn, $mobile, $_SESSION["id"])) {
+        if ($mobile !== $currentMobile && isMobileExists($conn, $mobile, $_SESSION["id"])) {
             $errors["mobile"] = "Phone Number already in use.";
-            $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "mobile";
-            header("Location: /projects/xitTask/user");
-            exit();
         }
-
-        editMobile($conn, $_SESSION["id"], $mobile);
-
-        header("Location: /projects/xitTask/user");
-        exit();
     }
-    elseif(($_POST["action"] === "address")){
-            
-        $address = trim($_POST["address"] ?? "");
-        $errors = [];
 
-        if ($address === "") {
-            $errors["address"] = "Address is required.";
-        } elseif (strlen($address) > 255) {
-            $errors["address"] = "Address must be under 255 characters.";
-        }
-
-        if (!empty($errors)) {
-            $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "address";
-            header("Location: /projects/xitTask/user");
-            exit();
-        }
-
-        $currentAddress = getAddress($conn, $_SESSION["id"]);
-
-        if ($address === $currentAddress) {
-            header("Location: /projects/xitTask/user");
-            exit();
-        }
-
-        editAddress($conn, $_SESSION["id"], $address);
-
-        header("Location: /projects/xitTask/user");
-        exit();
+    //Address Check
+    if ($address === "") {
+        $errors["address"] = "Address is required.";
+    } elseif (strlen($address) > 255) {
+        $errors["address"] = "Address must be under 255 characters.";
     }
-    elseif (($_POST["action"] ?? "") === "avatar") {
 
-        $id = $_SESSION["id"] ?? "";
+    //Avatar Check
+    if(isset($_FILES["avatar"])){
+        $_SESSION["openAvatar"] = "true";
 
+        if(!$avatarProvided){
+            $errors["avatar"] = "Please upload a avatar";
+        }
+    }
+
+    
+    //Error Exists
+    if (!empty($errors)) {
+        $_SESSION["errors"] = $errors;
        
+        header("Location: /projects/xitTask/user/editProfile");
+        exit();
+    }
 
-        $errors = [];
-
+    //Avatar Part
+    if(isset($_FILES["avatar"])){
         function isAvatarInvalid(&$errors, &$avatarFilename, $id, $avatarTmpPath, $avatarUploadError){
 
             if ($avatarUploadError !== UPLOAD_ERR_OK) {
@@ -211,27 +173,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             }
         }
 
-
-    
-
-        $avatarTmpPath = $_FILES["avatar"]["tmp_name"] ?? "";
-        $avatarUploadError = $_FILES["avatar"]["error"] ?? UPLOAD_ERR_NO_FILE;
-        $avatarProvided = $avatarUploadError !== UPLOAD_ERR_NO_FILE;
-
-        $newAvatarFilename = "";
-
-        if(!$avatarProvided){
-            $errors["avatar"] = "Please upload a avatar";
-            $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "avatar";
-            header('Location: /projects/xitTask/user');
-            exit;
-        }
+        
 
         if (isAvatarInvalid($errors, $newAvatarFilename, $id, $avatarTmpPath, $avatarUploadError)) {
             $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "avatar";
-            header('Location: /projects/xitTask/user');
+            $_SESSION["openAvatar"] = "true";
+            header('Location: /projects/xitTask/user/editProfile');
             exit;
         }
 
@@ -246,21 +193,32 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $errors["avatar"] = "Failed to save avatar.";
 
             $_SESSION["errors"] = $errors;
-            $_SESSION["editForm"] = "avatar";
-
-            header("Location: /projects/xitTask/user");
+            $_SESSION["openAvatar"] = "true";
+            header('Location: /projects/xitTask/user/editProfile');
             exit;
         }
 
         updateUserAvatar($conn, $id, $newAvatarFilename);
-
-    
-
-        header('Location: /projects/xitTask/user');
-        exit;
     }
-    else{
-        header("Location: /projects/xitTask/");
+   
+
+
+    //Database Update
+    updateUserName($conn, $_SESSION["id"], $name);
+    editMobile($conn, $_SESSION["id"], $mobile);
+    editAddress($conn, $_SESSION["id"], $address);
+    if(isset($_POST["currentPassword"])){
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        editUserPassword($conn, $_SESSION["id"], $hashedPassword);
     }
 
+    session_regenerate_id(true);
+
+    header('Location: /projects/xitTask/user/editProfile');
+    exit;
+
+}
+else{
+    header("Location: /projects/xitTask/");
+    exit();
 }

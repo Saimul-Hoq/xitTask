@@ -4,6 +4,9 @@ nav {
 .navbar-container{
     width: 100%;
 }
+#admin-navbar{
+    margin-bottom: 1rem;
+}
 .navbar {
     position: relative;
     z-index: 1;
@@ -64,6 +67,7 @@ nav {
 }
 .navbar-user-image img{
     width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 999px;
 }
@@ -81,9 +85,7 @@ nav {
     margin-bottom: 0;
 }
 
-.navbar-bottom{
-    justify-content:end;
-}
+
 
 .navbar #open-menu,
 .navbar #close-menu{
@@ -123,7 +125,10 @@ nav {
     margin-left: 0;
     gap: 1rem;
     width: 100%;
+}
 
+#admin-navbar-bottom{
+    justify-content: space-between !important;
 }
 
 .navbar-dropdown a{
@@ -136,6 +141,9 @@ nav {
     gap: 0.5rem;
   
 }
+/* #dropdown-admin{
+    justify-content: space-between;
+} */
 
 .show{
     display: block !important;

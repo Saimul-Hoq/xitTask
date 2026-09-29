@@ -11,6 +11,10 @@
     $errors = $_SESSION["errors"] ?? [];
     $currentEditForm = $_SESSION["editForm"] ?? "";
     unset($_SESSION["errors"], $_SESSION["editForm"]); 
+
+    function errClass(array $errors, string $field): string {
+        return isset($errors[$field]) ? ' input-error' : '';
+    }
     
 ?>
 
@@ -21,7 +25,7 @@
         
             
             <div class="input-wrapper">
-                <input id="edit-currentPassword" name="currentPassword" type="password" class="input" placeholder="Enter current password" />
+                <input id="edit-currentPassword" name="currentPassword" type="password" class="input<?= errClass($errors, 'currentPassword') ?>" placeholder="Enter current password" />
                 <i class="fa-solid fa-eye eye-open eye" onclick="toggleCurrentPassword(this)"></i>
                 <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleCurrentPassword(this)"></i>
             </div>
@@ -34,7 +38,7 @@
         
             
             <div class="input-wrapper">
-                <input id="edit-newPassword" name="newPassword" type="password" class="input" placeholder="Enter new password" />
+                <input id="edit-newPassword" name="newPassword" type="password" class="input<?= errClass($errors, 'newPassword') ?>" placeholder="Enter new password" />
                 <i class="fa-solid fa-eye eye-open eye" onclick="toggleNewPassword(this)"></i>
                 <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleNewPassword(this)"></i>
             </div>
@@ -48,7 +52,7 @@
             
 
             <div class="input-wrapper">
-                <input id="edit-confirmPassword" name="confirmPassword" type="password" class="input" placeholder="Confirm new password" />
+                <input id="edit-confirmPassword" name="confirmPassword" type="password" class="input<?= errClass($errors, 'confirmPassword') ?>" placeholder="Confirm new password" />
                 <i class="fa-solid fa-eye eye-open eye" onclick="toggleConfirmPassword(this)"></i>
                 <i class="fa-solid fa-eye-slash eye-close hidden eye" onclick="toggleConfirmPassword(this)"></i>
             </div>
