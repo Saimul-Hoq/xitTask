@@ -69,6 +69,7 @@
 }
 #profile-photo-section{
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
     align-items: center ;
     margin-top: 1.5rem;
@@ -218,11 +219,17 @@ form{
     #profile{
         width: 80%;
     }
+    .email-input{
+        width: 40%;
+    }
 }
 
 @media screen and (max-width: 991px){
     #profile{
         width: 90%;
+    }
+    .email-input{
+        width: 50%;
     }
 }
 
@@ -242,7 +249,7 @@ form{
         width: 100%;
     }
     .email-input{
-        width: 45%;
+        width: 60%;
     }
     #edit-password-fields{
         flex-direction: column;

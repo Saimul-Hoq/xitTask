@@ -82,7 +82,7 @@
                 <p class="text-md text-gray">This contact will be shown to others publicly, so choose it carefully.</p>
             </div>
 
-            <div class="email-input">
+            <div class="email-input info-field">
                 <input readonly id="edit-email" name="email" type="text" value="<?php echo htmlspecialchars($user["email"] ?? "") ?>" class="input"/>
             </div>
 
