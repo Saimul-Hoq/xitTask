@@ -162,7 +162,6 @@ label{
 
 
 a {
-    /* color: color-mix(in oklab,var(--tblr-link-color) calc(var(--tblr-link-opacity,1) * 100%),transparent); */
     text-decoration: none;
     color: var(--text-color);
 }
@@ -172,7 +171,6 @@ p[id$="-error"]:empty {
 
 
 a:hover {
-    color: var(--link-hover-color);
     text-decoration: none;
 }
 
@@ -595,3 +593,6 @@ fieldset hr, form hr, .card hr, .navbar-container hr{
 }
 
 
+.eye{
+    color: rgb(145, 144, 144) !important;
+}
