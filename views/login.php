@@ -63,3 +63,4 @@
 </section>
  
 <script src="/projects/xitTask/js/login.js"></script>
+<script src="/projects/xitTask/js/mode.js"></script>

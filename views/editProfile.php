@@ -164,3 +164,4 @@
 
 <script src="/projects/xitTask/js/dashboard.js"></script>
 <script src="/projects/xitTask/js/passwordField.js"></script>
+<script src="/projects/xitTask/js/mode.js"></script>

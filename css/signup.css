@@ -37,7 +37,7 @@
 #successPopup{
     position: absolute;
     width: 25vw;
-    background-color: rgba(20, 20, 20, 0.974);
+    background-color: var(--popup-bg);
     z-index: -5;
     opacity: 0;
     padding: 2rem 2rem 1rem;
@@ -70,12 +70,12 @@
     pointer-events: none;
 }
 #login{
-    color: oklab(0.7155 0 0);
+    color: var(--text-muted);
     font-weight: 400;
     margin-top: 1rem;
 }
 a{
-    color: oklab(0.727598 -0.0281464 -0.0995238);
+    color: var(--link-color);
 }
 
 .input{
@@ -95,7 +95,7 @@ a{
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #707070;
+    color: var(--text-muted);
 }
 .signup-field{
     position: relative;

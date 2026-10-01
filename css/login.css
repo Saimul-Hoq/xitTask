@@ -12,10 +12,10 @@
     margin-top: 1rem;
 }
 a{
-    color: oklab(0.727598 -0.0281464 -0.0995238);
+    color: var(--link-color);
 }
 #signup{
-    color: oklab(0.7155 0 0);
+    color: var(--text-muted);
     font-weight: 400;
 }
 

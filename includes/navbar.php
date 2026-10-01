@@ -8,6 +8,8 @@
     require_once(__DIR__."/../config/database.php");
     require_once(__DIR__."/../models/admin_model.php");
     $user = getUser($conn, $_SESSION["id"]);
+    $currentPath = rtrim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
     
 ?>
 
@@ -25,6 +27,10 @@
                 </svg></nav>
         </div>
         <div class="navbar-end">
+            <div id="mode">
+                <i onclick="toggleMode(this)" id="lightMode-btn" class="fa-regular fa-sun "></i>
+                <i onclick="toggleMode(this)" id="darkMode-btn" class="fa-regular fa-moon "></i>
+            </div>
             <div class="navbar-user-image">
                  <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
             </div>
@@ -40,10 +46,12 @@
     </section>
 
     <section id="navbar-admin admin-navbar-bottom" class="navbar navbar-bottom">
-         <div class="navbar-start">
-            <a class="btn-icon" href="/projects/xitTask/admin/userList"><i class="fa-solid fa-users"></i> User List</a>
-            <a class="btn-icon" href="/projects/xitTask/admin/requests"><i class="fa-regular fa-bell"></i>Requests</a>
-            <a class="btn-icon" href="/projects/xitTask/admin/profile"><i class="fa-solid fa-unlock-keyhole"></i>Password</a>
+        <div class="navbar-start">
+            <a class="btn-icon menu <?=  $currentPath==="/projects/xitTask/admin/userList"? " active": ""  ?>" href="/projects/xitTask/admin/userList"><i class="fa-solid fa-users"></i> User List</a>
+
+            <a class="btn-icon menu <?=  $currentPath==="/projects/xitTask/admin/requests"? " active": ""  ?>" href="/projects/xitTask/admin/requests"><i class="fa-regular fa-bell "></i>Requests</a>
+
+            <a class="btn-icon menu <?=  $currentPath==="/projects/xitTask/admin/profile"? " active": ""  ?>" href="/projects/xitTask/admin/profile"><i class="fa-solid fa-unlock-keyhole"></i>Password</a>
         </div>
         <div class="navbar-end">
             <a class="btn-icon" href="/projects/xitTask/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout </a>
@@ -130,3 +138,4 @@
 </section>
 
 <script src="/projects/xitTask/js/navbar.js"></script>
+<script src="/projects/xitTask/js/mode.js"></script>

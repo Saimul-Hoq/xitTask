@@ -105,3 +105,5 @@
 
 
 <script src="/projects/xitTask/js/signup.js"></script>
+<script src="/projects/xitTask/js/mode.js"></script>
+

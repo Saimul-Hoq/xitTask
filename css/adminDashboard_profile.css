@@ -33,7 +33,7 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #707070;
+    color: var(--text-muted);
 }
 
 @media screen and (max-width: 1440px){

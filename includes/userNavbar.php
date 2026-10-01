@@ -29,6 +29,11 @@
                 </svg></nav>
         </div>
         <div class="navbar-end">
+            <div id="mode">
+                <i onclick="toggleMode(this)" id="lightMode-btn" class="fa-regular fa-sun "></i>
+                <i onclick="toggleMode(this)" id="darkMode-btn" class="fa-regular fa-moon "></i>
+            </div>
+            
             <div class="navbar-user-image">
                  <img src="/projects/xitTask/uploads/<?= htmlspecialchars($user["avatar"]) ?>" alt="Profile Picture">
             </div>
@@ -82,4 +87,6 @@
 </section>
 
 <script src="/projects/xitTask/js/navbar.js"></script>
+<script src="/projects/xitTask/js/mode.js"></script>
+
 <!-- <script src="/projects/xitTask/js/dashboard.js"></script> -->

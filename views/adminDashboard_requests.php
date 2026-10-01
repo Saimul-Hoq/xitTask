@@ -79,3 +79,4 @@
 </div>
 <script src="/projects/xitTask/js/navbar.js"></script>
 <script src="/projects/xitTask/js/request.js"></script>
+<script src="/projects/xitTask/js/mode.js"></script>
